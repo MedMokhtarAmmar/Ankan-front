@@ -1,0 +1,86 @@
+<div class="login">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center h-100 pt-4 pb-4 content-login">
+      <div class="col-xl-5 col-lg-6 col-md-10">
+        <div class="wrap-login">
+                        <span class="logo-login">
+                            <img src="../../../assets/img/logo-ankan.png" alt="">
+                        </span>
+
+          <form class="needs-validation mt-5" novalidate (ngSubmit)="signIn()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+
+                  <label for="validationEmail">Username</label>
+                  <input type="text" class="form-control" id="validationEmail" [(ngModel)]="signInData.email"
+                         name="userEmail"
+                         aria-describedby="input-group-prepend" placeholder="" required>
+
+                </div>
+                <div class="form-group">
+
+
+                  <label for="validationPassword">Mot de passe</label>
+                  <div class="input-group">
+                    <input #uname1="ngModel"  [type]="show  ? 'text' : 'password'" class="form-control" [(ngModel)]="signInData.userPassword"
+                           ngModel
+                           minlength=5 name="userPassword"
+                           id="validationPassword" placeholder="" required>
+                    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fa " (click)="clickEvent()"[ngClass]="show ? 'fa-eye' : 'fa-eye-slash'" ></i>
+      </span>
+                    </div>
+
+                  </div>
+
+                  <div class="invalid-feedback">
+                    Entrez votre mot de passe
+                  </div>
+                  <!--                  <div *ngIf=" uname1.errors?.minlength" class="alert alert-danger">-->
+                  <!--                    Le nom doit comporter au moins 3 lettres et les caractères spéciaux ne sont pas autorisés.-->
+                  <!--                  </div>-->
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Rester connecté</label>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 text-right" *ngIf="signInData.email ;else bloc">
+                <a routerLink="/reset-password" class="forgetPassword" (click)="forgetPassword()">Mot de passe oublié
+                  ?</a>
+
+              </div>
+              <ng-template #bloc>
+                <a class="forgetPassword" (click)="showMessage()">Mot de passe oublié ?</a>
+
+              </ng-template>
+            </div>
+            <div class="row">
+              <div class="col-md-12  d-flex mt-5 align-items-center justify-content-center">
+                <button [disabled]="uname1.invalid" type="submit" class="btn cnx w-100">
+                  <span></span>
+                  <span>Connexion</span>
+                </button>
+              </div>
+            </div>
+
+          </form>
+
+          <p class=" msgInscriptionBottom mt-5 text-center">
+            Vous n'êtes pas encore inscrit?
+            <a routerLink="/register">Inscrivez-vous ici</a>
+          </p>
+          Ankan 2020 - Version :  {{version}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

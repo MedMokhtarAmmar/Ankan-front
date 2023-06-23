@@ -1,0 +1,205 @@
+.sidebar {
+
+  position: fixed;
+
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  z-index: 97; /* Behind the navbar */
+  padding: 0; /* Height of navbar */
+  background-color: white;
+  @include box-shadow(rgba(34, 56, 121, 0.2) 0px 0px 15px 0);
+  width: 250px;
+
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 63px);
+    padding-top: 1rem;
+    /*overflow-x: hidden;
+    overflow-y: auto;  */
+    .contentSidebar {
+      height: 300px;
+    }
+
+  }
+
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+
+  ul#MainMenu {
+    margin: 0;
+    padding: 0;
+
+    .list-group {
+      .nav-link {
+        @include display-flex;
+        align-items: center;
+        color: $blue;
+        font-family: 'Poppins-Regular', Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-size: .9rem;
+        background: transparent;
+        padding: 13px 17px;
+
+        .feather {
+          margin-right: 4px;
+          color: #999;
+        }
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+          color: $red;
+          text-decoration: none;
+        }
+
+        &.active {
+          background: rgba(0, 0, 0, 0.05);
+          color: $red;
+
+          .arrowR {
+            color: $red;
+          }
+        }
+
+        .arrowR {
+          font-size: 1.3rem;
+          line-height: 1rem;
+        }
+      }
+    }
+
+    ul.sub-list-group {
+      margin: 0;
+      padding: 0;
+
+      li {
+        @include display-flex;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        .nav-link-item {
+          @include display-flex;
+          align-items: center;
+          color: $blue;
+          font-family: 'Poppins-Regular', Helvetica, Arial, sans-serif;
+          font-size: .8rem;
+          background: transparent;
+          padding: 13px 17px 13px 50px;
+
+          .circle-puce {
+            width: 4px;
+            height: 4px;
+            background: $blue;
+            @include border-radius(50%);
+            display: inline-flex;
+          }
+
+          &:hover {
+            color: $red;
+            background: rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+          }
+
+          &.active {
+            color: $blue;
+            background: rgba(0, 0, 0, 0.05);
+
+            .circle-puce {
+              background: $blue;
+            }
+
+            .arrowR {
+              color: $blue;
+              line-height: 1rem;
+            }
+          }
+
+          i {
+            font-size: 1.3rem;
+            line-height: 1rem;
+          }
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+
+          li {
+            @include display-flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            a:link,
+            a:visited {
+              @include display-flex;
+              align-items: center;
+              color: $blue;
+              font-family: 'Poppins-Regular', Helvetica, Arial, sans-serif;
+              font-size: .7rem;
+              background: transparent;
+              padding: 13px 17px 13px 63px;
+
+              &:before {
+                content: "";
+                width: 5px;
+                height: 2px;
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 8px 0 1px;
+                background-color: $blue;
+                @include border-radius(10px);
+              }
+
+              &.active {
+                color: $blue;
+                background: rgba(0, 0, 0, 0.05);
+              }
+            }
+
+            a:hover {
+              color: $red;
+              background: rgba(0, 0, 0, 0.07);
+              text-decoration: none;
+            }
+
+          }
+        }
+      }
+    }
+
+    .link-text {
+      @include display-flex;
+      margin-right: .5rem;
+      margin-left: .5rem;
+      -webkit-box-flex: 1;
+      flex-grow: 1;
+    }
+  }
+}
+
+/*** Responsive ***/
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
+    top: 60px;
+  }
+  .header {
+    left: 0px !important;
+  }
+  [role="main"] {
+    padding-left: 0px !important;
+  }
+}

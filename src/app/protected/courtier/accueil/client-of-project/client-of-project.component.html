@@ -1,0 +1,19 @@
+<div *ngIf="project.clientEmail.length>1 ; else more">
+
+
+  <li >
+    <div class="col-md-4" style="width:800px; margin:0 auto;" data-label="Nom du client">{{user.firstName}}  {{user.lastName}},...</div>
+    <div class="col-md-4" style="width:800px; margin:0 auto;" data-label="Email">{{project.clientEmail[0]}}, ... </div>
+    <div class="col-md-4"   style="text-align: center" data-label="Téléphone">{{user.userPhone}}, ...</div>
+  </li>
+</div>
+<ng-template #more>
+  <li >
+    <div class="col-md-4" style="width:800px; margin:0 auto;" data-label="Nom du client">{{user.firstName}}  {{user.lastName}}</div>
+    <div class="col-md-4" style="width:800px; margin:0 auto;" data-label="Email">{{project.clientEmail[0]}} </div>
+    <div class="col-md-4"   style="text-align: center" data-label="Téléphone">{{user.userPhone}}</div>
+  </li>
+</ng-template>
+
+
+

@@ -1,0 +1,4 @@
+<app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" [compact]="false" (minimizedChange)="toggleMinimize($event)"  >
+  <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"   ></app-sidebar-nav>
+  <app-sidebar-minimizer [perfectScrollbar]  ></app-sidebar-minimizer>
+</app-sidebar>

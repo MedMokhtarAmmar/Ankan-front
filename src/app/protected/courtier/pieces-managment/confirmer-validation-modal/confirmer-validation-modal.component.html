@@ -1,0 +1,18 @@
+<div class="modal-body" *ngIf="piece">
+  <p><strong>Etes-vous sûr que vous voulez valider cette piéce :  <span class="text-primary">"{{this.piece.pieceName}}"</span>  </strong></p>
+  <p>en validant cette pièce, vous confirmez que tous les documents nécessaires sont fournis et dans le bon format.
+    <span class="text-info">Votre client sera informé par la validation de cette piéce </span>
+  </p>
+<!--  <div >-->
+<!--    <ul class="list-table"  *ngFor="let document of documents">-->
+<!--      <li  class="list-table-row">{{document.documentTitle}}</li>-->
+<!--    </ul>-->
+
+
+
+<!--</div>-->
+<div class="modal-footer">
+  <button id="cancel" type="button" class="btn btn-outline-secondary" (click)="closeModal()" >Annuler</button>
+  <button id="confirm" type="button" ngbAutofocus class="btn btn-info" (click)="ValiderPiece()" >Confirmer</button>
+</div>
+</div>

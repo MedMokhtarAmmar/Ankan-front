@@ -1,0 +1,346 @@
+<!--<app-header-courtier></app-header-courtier>-->
+<!--<app-sidebar-courtier></app-sidebar-courtier>-->
+<!--<main role="main">-->
+
+<!--  <div class="container-fluid mainContent">-->
+
+<!--    <div class="row mt-2">-->
+<!--      <div class="col-lg-12 col-md-12">-->
+<!--        <div class="portlet">-->
+<!--          <div class="bodyPortlet">-->
+<!--            <div class="row d-flex justify-content-center">-->
+<!--              <div class="col-md-9">-->
+<!--                <div class="row monCompte d-flex justify-content-around align-items-center">-->
+<!--                  <div class="col-lg-4 mb-4">-->
+<!--                    <h3 class="text-center mb-3">Mon compte</h3>-->
+<!--                    <div class="img-monCompte">-->
+
+<!--                    </div>-->
+<!--                    <small class="form-text text-center">-->
+<!--                      (Choisir un fichier jpg, jpeg ou png)-->
+<!--                    </small>-->
+<!--                    <div class="form-group">-->
+<!--                      <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--                      <label for="exampleFormControlFile1">-->
+
+<!--                        Upload-->
+<!--                        <i class="ri-upload-2-fill"></i>-->
+
+
+<!--                      </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-4 mb-3">-->
+<!--                    <h3 class="text-center mb-4">Mon entreprise</h3>-->
+<!--                    <div class="img-monCompte">-->
+
+<!--                    </div>-->
+<!--                    <small class="form-text text-center">-->
+<!--                      (Choisir un fichier jpg, jpeg ou png)-->
+<!--                    </small>-->
+<!--                    <div class="form-group">-->
+<!--                      <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--                      <label for="exampleFormControlFile1">-->
+
+<!--                        Upload-->
+<!--                        <i class="ri-upload-2-fill"></i>-->
+
+
+<!--                      </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="row d-flex justify-content-center">-->
+<!--              <div class="col-md-8">-->
+<!--                <form class="form-default">-->
+<!--                  <div class="row mb-3">-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="firstName">Nom</label>-->
+<!--                      <input type="text" class="form-control" [formControl]="userForm.controls.firstName" [(ngModel)]="user.firstName"-->
+<!--                             (mouseleave)="updatefirstName(value)"  name="firstName" id="firstName" ngModel-->
+<!--                             pattern="[a-zA-Zé ]*" value="{{user.firstName}}">-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="lastName">Prénom</label>-->
+<!--                      <input type="text" class="form-control" id="lastName" value="{{user.lastName}}" [formControl]="userForm.controls.lastName"-->
+<!--                             [(ngModel)]="user.lastName" (mouseleave)="updatelastName(value)">-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="row mb-3">-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="userAddress">Adresse</label>-->
+<!--                      <input type="text" class="form-control" id="userAddress"  value="{{user.userAddress}}" [formControl]="userForm.controls.userAddress"-->
+<!--                             [(ngModel)]="user.userAddress" (mouseleave)="updateUserAddress(value)">-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="ville">Ville</label>-->
+<!--                      <input type="text" class="form-control" id="ville" value="{{user.ville}}" [formControl]="userForm.controls.ville"-->
+<!--                             [(ngModel)]="user.ville" (mouseleave)="updateVille(value)">-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="userPhone">Numéro de téléphone</label>-->
+<!--                      <input type="text" class="form-control" id="userPhone"  value="{{user.userPhone}}" [formControl]="userForm.controls.userPhone"-->
+<!--                             [(ngModel)]="user.userPhone" (mouseleave)="updateUserPhone(value)" >-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group col-md-6">-->
+<!--                      <label for="inputEmail4">Email</label>-->
+<!--                      <input type="email" class="form-control" id="inputEmail4" value="{{user.email}}" disabled>-->
+<!--                      <span class="focus-border"></span>-->
+<!--                    </div>-->
+<!--                  </div>-->
+
+
+<!--                </form>-->
+
+<!--                <fieldset>-->
+<!--                  <legend>Modifier mot de passe:</legend>-->
+<!--                  <form  [formGroup]="passwordForm" (ngSubmit)="updatePassword()">-->
+<!--                    <div class="row">-->
+<!--                      &lt;!&ndash;<div class="col-md-12">&ndash;&gt;-->
+<!--                      &lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--                      <div class="col-md-12">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="oldPassword">Ancien mot de passe</label>-->
+<!--                          <input type="password" formControlName="oldPassword" class="form-control" id="oldPassword"-->
+<!--                                 aria-describedby="input-group-prepend" placeholder="" value="">-->
+<!--                          <div class="alert alert-danger" *ngIf="!f.oldPassword.valid && f.oldPassword.touched">Saisir-->
+<!--                            votre ancien mot de passe-->
+<!--                          </div>-->
+
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="col-md-12">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="userPassword">Nouveau mot de passe</label>-->
+<!--                          <input type="password" formControlName="userPassword" class="form-control" id="userPassword"-->
+<!--                                 aria-describedby="input-group-prepend" placeholder="">-->
+<!--                          <div class="alert alert-danger" *ngIf="!f.userPassword.valid && f.userPassword.touched">Saisir-->
+<!--                            votre nouveau mot de passe-->
+<!--                          </div>-->
+
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="col-md-12">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="confirmPassword">Confirmation de mot de passe</label>-->
+<!--                          <input type="password" class="form-control" id="confirmPassword"-->
+<!--                                 formControlName="confirmPassword"-->
+<!--                                 aria-describedby="input-group-prepend" placeholder="">-->
+<!--                          <div class="alert alert-danger"-->
+<!--                               *ngIf="f.confirmPassword.touched && f.confirmPassword.value!==f.userPassword.value">Ces-->
+<!--                            mots de passe ne correspondent pas essayez à nouveau-->
+<!--                          </div>-->
+
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      &lt;!&ndash;</div>&ndash;&gt;-->
+<!--                      &lt;!&ndash;</div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn-default">Submit</button>-->
+
+<!--                  </form>-->
+<!--                </fieldset>-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+
+<!--  </div>-->
+<!--</main>-->
+
+
+<app-header-courtier></app-header-courtier>
+
+<app-sidebar-courtier></app-sidebar-courtier>
+
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mt-2">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="bodyPortlet">
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-9">
+                <div class="row monCompte d-flex justify-content-around align-items-center">
+                  <div class="col-lg-4 mb-4">
+                    <h3 class="text-center mb-3">Mon compte</h3>
+                    <div class="img-monCompte" *ngIf="url;  else block">
+                      <img [src]="url">
+
+                    </div>
+                    <ng-template #block>
+                      <div class="img-monCompte">
+                        <img [src]="fileURL">
+
+                      </div>
+                    </ng-template>
+
+                    <small class="form-text text-center">
+                      (Choisir un fichier jpg, jpeg ou png)
+                    </small>
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                             (change)="updateCompteFile($event)"  >
+                      <label for="exampleFormControlFile1" >
+
+                        Upload
+                        <i class="ri-upload-2-fill" ></i>
+
+
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mb-3">
+                    <h3 class="text-center mb-4">Mon entreprise</h3>
+                    <div class="img-monCompte" *ngIf="url2;  else block2">
+                      <img [src]="url2">
+
+                    </div>
+                    <ng-template #block2>
+                      <div class="img-monCompte">
+                        <img [src]="fileURLComapny">
+
+                      </div>
+                    </ng-template>
+                    <small class="form-text text-center">
+                      (Choisir un fichier jpg, jpeg ou png)
+                    </small>
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="exampleFormControlFile2"
+                             (change)="updateCampanyFile($event)" >
+                      <label for="exampleFormControlFile2">
+
+                        Upload
+                        <i class="ri-upload-2-fill"></i>
+
+
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-8">
+                <form class="form-default">
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="firstName">Nom</label>
+                      <input type="text" class="form-control" [formControl]="userForm.controls.firstName" [(ngModel)]="user.firstName"
+                             (mouseleave)="updatefirstName(user.firstName)"  name="firstName" id="firstName" ngModel
+                             pattern="[a-zA-Zé ]*" value="{{user.firstName}}">
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="lastName">Prénom</label>
+                      <input type="text" class="form-control" id="lastName" value="{{user.lastName}}" [formControl]="userForm.controls.lastName"
+                             [(ngModel)]="user.lastName" (mouseleave)="updatelastName(user.lastName)">
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="userAddress">Adresse</label>
+                      <input type="text" class="form-control" id="userAddress"  value="{{user.userAddress}}" [formControl]="userForm.controls.userAddress"
+                             [(ngModel)]="user.userAddress" (mouseleave)="updateUserAddress(user.userAddress)">
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control" id="username" value="{{user.username}}" [formControl]="userForm.controls.username"
+                             [(ngModel)]="user.username" (mouseleave)="updateUserName(user.username)">
+                      <span class="focus-border"></span>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="userPhone">Numéro de téléphone</label>
+                      <input type="text" class="form-control" id="userPhone"  value="{{user.userPhone}}" [formControl]="userForm.controls.userPhone"
+                             [(ngModel)]="user.userPhone" (mouseleave)="updateUserPhone(user.userPhone)">
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" class="form-control" id="inputEmail4" value="{{user.email}}" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+
+                  </div>
+
+
+                </form>
+                <fieldset>
+                  <legend>Modifier mot de passe:</legend>
+                  <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+                    <div class="row">
+                      <!--<div class="col-md-12">-->
+                      <!--<div class="row">-->
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="oldPassword">Ancien mot de passe</label>
+                          <input type="password" formControlName="oldPassword" class="form-control" id="oldPassword"
+                                 aria-describedby="input-group-prepend" placeholder="" value="">
+                          <div class="alert alert-danger" *ngIf="!f.oldPassword.valid && f.oldPassword.touched">Saisir
+                            votre ancien mot de passe
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="newPassword">Nouveau mot de passe</label>
+                          <input type="password" formControlName="newPassword" class="form-control" id="newPassword"
+                                 aria-describedby="input-group-prepend" placeholder="">
+                          <div class="alert alert-danger" *ngIf="!f.newPassword.valid && f.newPassword.touched">Saisir
+                            votre nouveau mot de passe
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="confirmPassword">Confirmation de mot de passe</label>
+                          <input type="password" class="form-control" id="confirmPassword"
+                                 formControlName="confirmPassword"
+                                 aria-describedby="input-group-prepend" placeholder="">
+                          <div class="alert alert-danger"
+                               *ngIf="f.confirmPassword.touched && f.confirmPassword.value!==f.newPassword.value">Ces
+                            mots de passe ne correspondent pas essayez à nouveau
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--</div>-->
+                      <!--</div>-->
+                    </div>
+                    <button [disabled]="(f.confirmPassword.value!==f.newPassword.value)" type="submit" class="btn-default">Submit</button>
+
+                  </form>
+                </fieldset>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</main>

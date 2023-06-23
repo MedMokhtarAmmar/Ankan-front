@@ -1,0 +1,181 @@
+/* Bouton Inscription */
+
+.inscription{
+    font-family: 'Poppins-SemiBold',Helvetica, Arial, sans-serif !important;
+    background: $red-2;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2rem;
+    @include fade;
+    border: none;
+    color: #ffffff;
+    padding: .8rem 2.2rem;
+    -webkit-appearance: initial;
+    position: relative;
+    overflow: hidden;
+
+   &:hover{
+      color: white;
+      @include box-shadow(rgba(34, 56, 121, 0.2) 0px 4px 40px 4px);
+    }
+
+    span:first-child{
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      &:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        will-change: transform;
+        -webkit-transform: translate3d(0,101%,0);
+        transform: translate3d(0,101%,0);
+        opacity: 0;
+        background: $blue;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        will-change: transform;
+        -webkit-transform: translate3d(0,-101%,0);
+        transform: translate3d(0,-101%,0);
+        -webkit-transition: -webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+        transition: -webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+        transition: transform .42s cubic-bezier(.645,.045,.355,1);
+        transition: transform .42s cubic-bezier(.645,.045,.355,1),-webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+        opacity: 1;
+        background: $blue;
+      }
+    }
+
+    &:hover span:first-child:before{
+      -webkit-transition: -webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+      transition: -webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+      transition: transform .42s cubic-bezier(.645,.045,.355,1);
+      transition: transform .42s cubic-bezier(.645,.045,.355,1),-webkit-transform .42s cubic-bezier(.645,.045,.355,1);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 1;
+      background: $blue;
+    }
+
+    &:hover span:first-child:after{
+      -webkit-transition: none;
+      transition: none;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 0;
+      background: $blue;
+    }
+
+    span:last-child{
+      display: block;
+      position: relative;
+      pointer-events: none;
+      @include fade;
+      color: white;
+    }
+
+    &:hover span:last-child{
+      color: white;
+    }
+
+    &:active{
+      color: white !important;
+    }
+
+  }
+
+.login {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    color: $blue;
+    background-image: url(~src/assets/img/bg-login.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    a:link,
+    a:visited{
+      color:$blue;
+    }
+    a:hover{
+      color: $red;
+      text-decoration: none;;
+    }
+    .content-login{
+      min-height: 100vh;
+      .wrap-login{
+        background: white;
+        @include border-radius(3px);
+        @include box-shadow(rgba(0, 0, 0, .2) 0px 0px 25px 0);
+        padding: 2rem 5rem;
+        .logo-login{
+          width: 180px;
+          height: 37px;
+          display: block;
+          margin: 0 auto;
+        }
+        .form-control{
+          font-size: .9rem;
+          color: $gray-1;
+          height: calc(1.5em + 1.5rem + 5px);
+        }
+        .custom-control-label{
+          font-family: 'Poppins-Light',Helvetica, Arial, sans-serif !important;
+          color: $gray-2;
+          font-size: .8rem;
+        }
+        .msgInscriptionBottom{
+          a:link,
+          a:visited{
+            color:$red;
+            font-family: 'Poppins-SemiBold',Helvetica, Arial, sans-serif !important;
+          }
+          a:hover{
+            color: $blue;
+            text-decoration: none;;
+          }
+        }
+        p.postuler{
+          font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif !important;
+          margin-bottom: 0;
+          margin-right: 15px;
+          font-size: .9rem;
+          color: $blue;
+        }
+        .custom-control-inline {
+          margin-top: 3px;
+          .custom-control-label {
+            color: $blue;
+            font-family: 'Poppins-SemiBold',Helvetica, Arial, sans-serif !important;
+            font-size: .9rem;
+          }
+        }
+      }
+    }
+    .cnx{
+      @extend .inscription;
+    }
+  }
+
+  @media (max-width: 533px){
+    .login{
+      .content-login{
+        .wrap-login{
+          padding: 2rem 1rem;
+        }
+      }
+    }
+  }
+

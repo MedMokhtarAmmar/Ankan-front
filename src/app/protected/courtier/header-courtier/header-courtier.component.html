@@ -1,0 +1,44 @@
+<header class="header" xmlns="">
+  <div class="menuMobile"><a href="" OnClick="return false;" (click)="showSide()"> <i class="ri-menu-2-line"></i></a></div>
+  <a class="navbar-brand" routerLink="/courtier/accueil"><img src="../../../../assets/img/logo-ankan.png" alt=""></a>
+  <div class="topBarHeader">
+    <div class="topbarUser">
+      <span class="nameUser" *ngIf="testmail">{{user.username}} , {{testmail}}</span>
+
+      <app-notifications [typeUser]="typeUser"></app-notifications>
+
+    </div>
+    <div class="dropdown">
+      <a class="arrowDropDown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">
+        <i class="ri-arrow-down-s-line"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <a class="LinkDropdownProfil d-flex align-items-center" routerLink="/courtier/profil">
+          <i class="ri-user-line pr-2"></i>Mon compte
+        </a>
+        <a class="LinkDropdownProfil d-flex align-items-center" routerLink="/client/accueil" value='Press me' title='se connecter en tant que client'>
+          <i class="ri-repeat-line pr-2"></i>Mon espace client
+        </a>
+        <a class="LinkDropdownProfil d-flex align-items-center" href="#" (click)="logout()">
+          <i class="ri-logout-box-line pr-2"></i>Déconnexion
+        </a>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+</header>
+<script>
+
+  function myfunction() {
+    $(document).ready(function () {
+      $("#bouton").click(function () {
+        $('#toast1').toast('show');
+      });
+    });
+  }
+</script>

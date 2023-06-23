@@ -1,0 +1,156 @@
+<mat-dialog-content >
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalCenterTitle3">les informations du Partenaire </h5>
+
+  </div>
+  <div class="modal-body">
+    <div class="row mt-2">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="bodyPortlet">
+<!--            <div class="row d-flex justify-content-center">-->
+<!--              <div class="col-md-9">-->
+<!--                <div class="row monCompte d-flex justify-content-around align-items-center">-->
+<!--                  <div class="col-lg-4 mb-4">-->
+<!--                    <h3 class="text-center mb-3">Mon compte</h3>-->
+<!--                    <div class="img-monCompte">-->
+
+<!--                    </div>-->
+<!--                    <small class="form-text text-center">-->
+<!--                      (Choisir un fichier jpg, jpeg ou png)-->
+<!--                    </small>-->
+<!--                    <div class="form-group">-->
+<!--                      <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--                      <label for="exampleFormControlFile1">-->
+
+<!--                        Upload-->
+<!--                        <i class="ri-upload-2-fill"></i>-->
+
+
+<!--                      </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="col-lg-4 mb-3">-->
+<!--                    <h3 class="text-center mb-4">Mon entreprise</h3>-->
+<!--                    <div class="img-monCompte">-->
+
+<!--                    </div>-->
+<!--                    <small class="form-text text-center">-->
+<!--                      (Choisir un fichier jpg, jpeg ou png)-->
+<!--                    </small>-->
+<!--                    <div class="form-group">-->
+<!--                      <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+<!--                      <label for="exampleFormControlFile1">-->
+
+<!--                        Upload-->
+<!--                        <i class="ri-upload-2-fill"></i>-->
+
+
+<!--                      </label>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-8">
+                <form class="form-default" [formGroup]="detailsForm">
+                  <div class="row mb-3">
+                    <div class="form-group col-md-2">
+                      <label for="inputEmail4">civilité</label>
+                      <input type="text" class="form-control" formControlName="partenaireCivility" id="inputEmail4"  disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputEmail4">Nom</label>
+                      <input type="text" class="form-control" formControlName="partenaireNom" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-5">
+                      <label for="inputEmail4">Prénom</label>
+                      <input type="text" class="form-control" formControlName="partenairePrenom" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Adresse</label>
+                      <input type="text" class="form-control" formControlName="partenaireAddress" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Numéro de téléphone</label>
+                      <input type="number" class="form-control" formControlName="partenairePhone" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" class="form-control" formControlName="partenaireEmail" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Mot de passe</label>
+                      <input type="text" class="form-control" formControlName="ville" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">2éme Adresse </label>
+                      <input type="email" class="form-control" formControlName="address2" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">3éme Adresse</label>
+                      <input type="text" class="form-control" formControlName="address3" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Code Postal </label>
+                      <input type="email" class="form-control" formControlName="codePostal" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Establishment</label>
+                      <input type="text" class="form-control" formControlName="partenaireEstablishment" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Nom du Service</label>
+                      <input type="email" class="form-control" formControlName="partenaireServiceName" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputEmail4">Siren</label>
+                      <input type="text" class="form-control" formControlName="Siren" id="inputEmail4" disabled>
+                      <span class="focus-border"></span>
+                    </div>
+                  </div>
+<!--                  <div class="row mb-3 d-flex justify-content-center">-->
+<!--                    <div class="col-xl-6 col-lg-8 col-md-8 d-flex justify-content-center">-->
+<!--                      <button type="submit" class="btn btn-default w-100">Enregistrer les modifications</button>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+</div>
+</mat-dialog-content>

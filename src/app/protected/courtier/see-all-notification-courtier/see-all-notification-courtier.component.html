@@ -1,0 +1,79 @@
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row amb-4">
+
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="headerPortlet">
+            <h3>tous les notifications</h3>
+          </div>
+          <div class="bodyPortlet">
+            <div class="row" *ngIf="notifications.length>0;else emptyList">
+
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="contentProject">
+
+                  <ul class="list-table">
+                    <li class="list-table-header">
+
+                    </li>
+                    <li class="list-table-row" *ngFor="let notification of notificationsNONARCHIVE;let i=index">
+
+                        <div class="colm colm-1" data-label="Nom du projet"><span class="badge badge-pill badge-danger'"
+                                                                                  style="color:red;"
+                                                                                  *ngIf="notification.status === 'NON_LUS'">new</span>{{notification.date |date:"yyyy/MM/dd \'à\' hh:mm"}}
+                        </div>
+
+                        <div class="colm colm-2" data-label="Nom du projet">{{notification.title}}</div>
+                        <div class="colm colm-3" data-label="Nom du projet">{{notification.messageID}}</div>
+
+
+                        <div class="colm colm-4" data-label="Etat du projet">
+                          <span *ngIf="notification.status === 'NON_LUS'"
+                                class="statusProject finish-project">Non Lus</span>
+                          <span *ngIf="notification.status === 'LUS'" class="statusProject progress-project">Lus</span>
+                          <span *ngIf="notification.status === 'ARCHIVES'"
+                                class="statusProject waiting-project">archivé</span>
+                        </div>
+                        <div class="colm colm-6">
+                          <a href="javascript:void (0)" class="consulter"
+                             data-toggle="modal">archiver</a>
+                        </div>
+
+                    </li>
+
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<ng-template #emptyList>
+  <div class="col-md-12">
+    <div class="alert alert-warning w-100 mt-2" role="alert">
+      Aucun notification à afficher.
+    </div>
+  </div>
+</ng-template>
+
+

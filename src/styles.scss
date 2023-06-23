@@ -1,0 +1,21 @@
+@import 'src/assets/sass/fonts';
+@import 'src/assets/sass/mixins/ankan';
+@import 'src/assets/sass/variables-ankan';
+@import "node_modules/bootstrap/scss/bootstrap";
+@import 'node_modules/compass-mixins/lib/compass/css3';
+@import "src/assets/sass/icones/fontawesome/fontawesome";
+@import "src/assets/sass/icones/fontawesome/solid";
+@import "src/assets/sass/icones/fontawesome/regular";
+@import "src/assets/sass/icones/fontawesome/brands";
+@import "src/assets/sass/icones/line-awesome/line-awesome";
+@import 'src/assets/sass/icones/remixicon/remixicon';
+@import "src/assets/sass/general";
+@import "src/assets/sass/login";
+@import "src/assets/sass/sidebar";
+@import "src/assets/sass/main";
+@import "src/assets/sass/header";
+@import "src/assets/sass/scroll";
+@import "src/assets/sass/components";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

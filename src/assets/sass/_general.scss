@@ -1,0 +1,59 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+body{
+    font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif;
+    font-size: $body-size;
+    background: #ffffff;
+    font-weight: normal;
+    color: $gray-1;
+  }
+
+  /* link */
+
+a:link,
+a:visited{
+  font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  @include fade;
+}
+
+
+/* Titres */
+
+h1{
+    font-family: 'Poppins-ExtraBold',Helvetica, Arial, sans-serif;
+    font-size: 2.5rem;
+    color: $blue;
+    margin: 10px 5px 10px 0;
+  }
+
+h2{
+  font-family: 'Poppins-ExtraBold',Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  color: $blue;
+  margin: 10px 5px 10px 0;
+}
+
+h3{
+  font-family: 'Poppins-Bold',Helvetica, Arial, sans-serif;
+  font-size: 1.7rem;
+  color: $blue;
+  margin: 10px 5px 10px 0;
+}
+
+h4{
+    font-family: 'Poppins-Bold',Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    color: $blue;
+    margin: 10px 5px 10px 0;
+  }
+
+h5{
+  font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: $blue;
+  margin: 10px 5px 10px 0;
+  font-weight: 600;
+}

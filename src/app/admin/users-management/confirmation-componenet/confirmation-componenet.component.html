@@ -1,0 +1,17 @@
+
+<!--<div class="modal-header">-->
+<!--  <h4 class="modal-title" id="modal-title">Profile deletion</h4>-->
+<!--  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="closeModal()">-->
+<!--    <span aria-hidden="true">&times;</span>-->
+<!--  </button>-->
+<!--</div>-->
+<div class="modal-body">
+  <p><strong>Etes-vous sûr que vous voulez supprimer  <span class="text-primary">"{{this.user.firstName}} {{this.user.lastName}}"</span>  profil?</strong></p>
+  <p>Toutes les informations associées à ce profil d'utilisateur seront définitivement supprimées.
+    <span class="text-danger">Cette opération ne peut pas être annulée.</span>
+  </p>
+</div>
+<div class="modal-footer">
+  <button id="annuler" type="button" class="btn btn-outline-secondary" (click)="closeModal()">Annuler</button>
+  <button id="confirmer"type="button" ngbAutofocus class="btn btn-danger" (click)="deleteUser(this.user)">Confirmer</button>
+</div>

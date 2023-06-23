@@ -1,0 +1,47 @@
+/***** Variables Ankan *****/
+
+/* Colors */
+$blue:          rgba(34, 56, 121, 1)!default;
+$blue-2:        rgba(5, 108, 242, 1)!default;
+$blue-3:        rgba(21, 34,74, 1)!default;
+$red:           rgba(225, 14, 81, 1)!default;
+$red-2:         rgba(228, 38, 98, 1)!default;
+$yellow:        rgba(255, 187, 68, 1)!default;
+$green:         rgba(122, 206, 76, 1)!default;
+$gray-1:        rgba(143, 147, 161, 1) !default; 
+$gray-2:        rgba(121, 121, 121, 1) !default;
+$gray-3:        rgba(226, 238, 235, 1) !default; 
+$gray-4:        rgba(238, 241, 246, 1) !default; 
+$gray-5:        rgba(232, 232, 232, 1) !default; 
+$gray-6:        rgba(192, 196, 209, 1) !default;
+$gray-7:        rgba(247, 250, 252, 1) !default;
+
+
+$border-radius:     .2rem !default;
+/* Radius */
+$btn-border-radius : .2rem !default;;
+
+/* Link */
+$link-color : $red;
+$link-hover-color : $red;
+$navbar-nav-link-padding-x : 1rem;
+
+/* Body */
+$body-color : white;
+$body-color:   $gray-1 !default;
+$body-size: .8rem;
+
+/* Forms */
+$input-height:calc(1.3em + 1.3rem);
+$border-radius:  .3rem !default;
+
+/* Widths default container */
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1024px,
+  xl: 1366px
+) !default;
+
+/* Size text */
+$font-size-base:              .9rem !default;

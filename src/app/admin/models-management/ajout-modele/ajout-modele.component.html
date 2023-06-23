@@ -1,0 +1,80 @@
+<div mat-dialog-content>
+
+  <div class="card card-info">
+    <div class="card-header">
+      <h3 class="card-title">Ajouter catégorie</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+
+    <div class="card-body">
+
+      <div class="form-group">
+        <label for="categorie">Choisir la catégorie</label>
+        <select id="inputState" class="form-control"  [(ngModel)]="selectedCategorie" (change)="selectCategorie(selectedCategorie)">
+          <option selected>Choose...</option>
+          <option *ngFor="let categorie of categories" [value]="categorie.id">{{categorie.libelle}}
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="description">Nom du Modéle:</label>
+        <input type="text" class="form-control" [(ngModel)]="modelName" id="description"
+               placeholder="Entrer la description de cette catégorie">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" [(ngModel)]="description" id="description"
+               placeholder="Entrer la description de cette catégorie">
+      </div>
+      <!-- /.card-body -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-9">
+          <div class="row monCompte d-flex justify-content-around align-items-center">
+
+            <div class="col-lg-12 mb-8">
+<!--              <h4 class="text-center mb-4">Aperçu fichier</h4>-->
+              <div  *ngIf="type ">
+                <img class="d-block w-100" [src]="url">
+
+              </div>
+<!--              <ng-template #elseBlock>-->
+<!--                <div class="img-monCompte">-->
+
+<!--                  <object [data]="url" type="application/pdf">-->
+<!--                    <embed [src]="url" type="application/pdf"/>-->
+<!--                  </object>-->
+<!--                  <pdf-viewer [src]="url" [render-text]="true" style="display: block;"></pdf-viewer>-->
+<!--                </div>-->
+
+<!--              </ng-template>-->
+              <small class="form-text text-center">
+                (Choisir un fichier jpg, jpeg ou png)
+              </small>
+              <div class="form-group">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                       (change)="onSelectFile($event)">
+                <label for="exampleFormControlFile1">
+
+                  Upload
+                  <i class="ri-upload-2-fill"></i>
+
+
+                </label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary" (click)="ajouterModele()">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>

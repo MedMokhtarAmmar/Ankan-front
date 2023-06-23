@@ -1,0 +1,79 @@
+
+
+<div class="card">
+  <div class="card-header">
+<!--    <div class="row">-->
+<!--      <div class="col" >-->
+<!--        <i class="fa fa-align-justify"></i>-->
+<!--      </div>-->
+
+
+<!--    </div>-->
+
+
+
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th > First name & Lastname</th>
+        <th >Email</th>
+        <th >Phone</th>
+        <th >Address</th>
+        <th >Town</th>
+        <th >Actions</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let partner of partenaires" >
+      <tr  *ngIf="partner.partnerStatus==='NON_CONFIRME'" >
+          <th style="width: 20%" scope="row" (click)="openDialogDetailsPartenaire(partner)">{{partner.partenaireNom}}</th>
+          <th style="width: 20%" (click)="openDialogDetailsPartenaire(partner)">{{partner.partenaireEmail}}</th>
+          <th style="width: 20%" (click)="openDialogDetailsPartenaire(partner)">{{partner.partenairePhone}}</th>
+          <th style="width: 20%" (click)="openDialogDetailsPartenaire(partner)">{{partner.partenaireAddress}}</th>
+          <th style="width: 20%" (click)="openDialogDetailsPartenaire(partner)">{{partner.ville}}</th>
+
+
+          <th style="width: 20%">
+            <div align="">
+              <button type="button" class="btn btn-block btn-danger btn-xs" (click)="supprimerPartner(partner)">Supprimer</button>
+              <button type="button" class="btn btn-block btn-success btn-xs" (click)="openDialogModifierPartenaire(partner)">Modifier</button>
+              <button type="button" class="btn btn-block btn-warning btn-xs" (click)="OpenDialogConfirmation(partner)">Confirmer</button>
+            </div>
+          </th>
+
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="firstPage()" > << </a></li>
+          <li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="previousPage()" > < </a></li>
+          <li class="page-item active">
+            <a class="page-link" href="javascript:void(0)">{{page}}</a>
+          </li>
+          <li class="page-item"><a class="page-link" (click)="nextPage()" href="javascript:void(0)"> > </a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="btn-group" dropdown>
+          <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+            Par Page: {{this.perPage}} <span class="caret"></span>
+          </button>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li class="dropdown-item" (click)="optionOne()">5</li>
+            <li class="dropdown-item" (click)="optionTwo()">10</li>
+            <li class="dropdown-item" (click)="optionThree()">20</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+

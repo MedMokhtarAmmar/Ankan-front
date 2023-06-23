@@ -1,0 +1,88 @@
+<div mat-dialog-content>
+
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalCenterTitle3">Modifier les informations </h5>
+    <button type="button" class="closeModal" data-dismiss="modal" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+      <div class="row formDefault">
+
+
+        <div class="col-md-12">
+
+          <div class="form-group">
+            <label for="projectName">Nom de projet</label>
+            <input type="text" class="form-control" id="projectName" formControlName="projectName"
+                   aria-describedby="input-group-prepend" placeholder="" value="{{project.projectName}}">
+          </div>
+
+          <div class="form-group">
+            <label for="validationName">E-mail client</label>
+            <input type="text" class="form-control" id="validationName" formControlName="email"
+                   aria-describedby="input-group-prepend" placeholder="" value="{{courtier.email}}" >
+          </div>
+
+
+          <div class="form-group">
+            <label for="firstName">Nom du client</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName"
+                   aria-describedby="input-group-prepend" placeholder=""  value="{{courtier.firstName}}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Prenom client</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                   aria-describedby="input-group-prepend" placeholder="" value="{{courtier.lastName}}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="userPhone">Tél client</label>
+            <input type="text" class="form-control" id="userPhone" formControlName="userPhone"
+                   aria-describedby="input-group-prepend" placeholder="" value="{{courtier.userPhone}}" disabled>
+          </div>
+
+
+          <div style="width:500px;">
+
+            <div style="width:200px; float:left;">
+              <div class="form-group colm colm-2">
+                <select id="inputState" class="form-control" formControlName="status">
+                  <option selected value="NEW">Nouveau</option>
+                  <option selected value="IN_PROGRESS">En cours</option>
+                  <option selected value="WAITING">En attente</option>
+                  <option selected value="FINISHED">Terminé</option>
+                </select>
+              </div>
+            </div>
+            <div style="width:200px; float:right;"><br>
+              <div class="colm colm-5" data-label="Etat">
+                <span *ngIf="project.status === 'NEW'" class="statusProject new-project">Nouveau</span>
+                <span *ngIf="project.status === 'IN_PROGRESS'" class="statusProject progress-project">En cours</span>
+                <span *ngIf="project.status === 'WAITING'" class="statusProject waiting-project">En attente</span>
+                <span *ngIf="project.status === 'FINISHED'" class="statusProject finish-project">Terminé</span>
+              </div>
+            </div>
+          </div>
+          <div style="clear: both;"></div>
+
+
+          <br>
+        </div>
+
+
+      </div>
+
+    </form>
+
+    <div class="modal-footer">
+      <button id="editproject" type="submit" (click)="onSubmit()" class="btn btn-primary">Modifier le Projet</button>
+    </div>
+
+  </div>
+</div>
+
+

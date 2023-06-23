@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col" >
+        <h5>Required Pieces</h5>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div *ngIf="pieces.length>0;else emptyList">
+      <div class="table-responsive">
+
+        <table class="table">
+      <thead>
+      <tr>
+        <th style=" text-align: center">piece's Name </th>
+        <th style=" text-align: center">Description </th>
+        <th style=" text-align: center">category</th>
+        <th style=" text-align: center">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let piece of pieces">
+        <td style=" text-align: center">{{piece.pieceName}} </td>
+        <td style=" text-align: center">{{piece.description}} </td>
+        <td style=" text-align: center"><app-categorie-libelle [piece]="piece"></app-categorie-libelle></td>
+
+        <td style="align-content: center">
+            <button *ngIf="piece.pieceStatus === 'NEW' " class="btn btn-block btn-success active" type="button" [disabled]="true">{{piece.pieceStatus}}</button>
+            <button *ngIf="piece.pieceStatus === 'WAITING' "class="btn btn-block btn-warning active" type="button" [disabled]="true">{{piece.pieceStatus}}</button>
+            <button *ngIf="piece.pieceStatus === 'VERIFIED'  " class="btn btn-block btn-info active" type="button" [disabled]="true">{{piece.pieceStatus}}</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+    <ng-template #emptyList>
+      <div class="col-md-12">
+        <div class="alert alert-warning w-100 mt-2" role="alert">
+          Aucune pièce à afficher.
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

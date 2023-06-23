@@ -1,0 +1,78 @@
+
+
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col" >
+        <i class="fa fa-align-justify"></i>
+      </div>
+      <div class="col" >
+        <a class="btn btn-tool btn-sm">
+          <button id="addpartner" type="button" class="btn btn-block btn-primary btn-xs" (click)="openDialogAjoutModel()">Add a Model
+          </button>
+        </a>
+      </div>
+
+    </div>
+
+
+
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th > Nom du Modele</th>
+        <th >Description du Modele</th>
+
+        <th >Actions</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let model of modeles" >
+      <tr >
+        <th style="width: 20%" scope="row" >{{model.modelName}}</th>
+        <th style="width: 20%" >{{model.description}}</th>
+
+        <th style="width: 20%">
+          <div align="">
+            <button type="button" class="btn btn-block btn-danger btn-xs" (click)="supprimerModel(model)">Supprimer</button>
+            <button type="button" class="btn btn-block btn-success btn-xs"(click)="modifierModel(model)">Modifier</button>
+          </div>
+        </th>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="row">
+      <div class="col">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="firstPage()" > << </a></li>
+          <li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="previousPage()" > < </a></li>
+          <li class="page-item active">
+            <a class="page-link" href="javascript:void(0)">{{page}}</a>
+          </li>
+          <li class="page-item"><a class="page-link" (click)="nextPage()" href="javascript:void(0)"> > </a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="btn-group" dropdown>
+          <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+            Par Page: {{this.perPage}} <span class="caret"></span>
+          </button>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li class="dropdown-item" (click)="optionOne()">5</li>
+            <li class="dropdown-item" (click)="optionTwo()">10</li>
+            <li class="dropdown-item" (click)="optionThree()">20</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+

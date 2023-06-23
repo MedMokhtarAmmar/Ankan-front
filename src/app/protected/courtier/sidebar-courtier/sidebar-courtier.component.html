@@ -1,0 +1,66 @@
+<nav class="sidebar" [ngStyle]="{'display': show ? 'block' :'none'}">
+
+
+  <div class="sidebar-sticky">
+    <div class="contentSidebar mCustomScrollbar">
+
+      <ul id="MainMenu">
+        <li class="list-group" >
+          <a href="javascript:void(0)"  class="nav-link "  [routerLink]="'/courtier/accueil/'"   (click)="clickEvent('project')"
+             [ngClass]="statusProjet ? 'active' : ''">
+            <span class="link-text">Mes projets</span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+
+        </li>
+
+
+        <li class="list-group" >
+          <a href="javascript:void(0)" class="nav-link " [routerLink]="'/courtier/pieces/'"   (click)="clickEvent('piece')"
+             [ngClass]="statusPiece ? 'active' : ''">
+
+            <span class="link-text">Pièces</span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+        </li>
+
+        <li class="list-group">
+          <a href="javascript:void(0)"  class="nav-link " [routerLink]="'/courtier/listpieces/'"   (click)="clickEvent('list')"
+             [ngClass]="statusList ? 'active' : ''" >
+
+            <span class="link-text">Liste des pièces</span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+        </li>
+
+        <li class="list-group">
+          <a href="javascript:void(0)" class="nav-link" >
+
+            <span class="link-text">Téléchargement</span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+        </li>
+
+
+        <li class="list-group">
+          <a href="javascript:void(0)"  routerLink="/courtier/partners-list" class="nav-link "  (click)="clickEvent('partner')"
+             [ngClass]="status ? 'active' : ''">
+            <span class="link-text">Partenaires </span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+        </li>
+
+
+        <li class="list-group">
+          <a href="javascript:void(0)"  class="nav-link">
+
+            <span class="link-text">Suivi des envois</span>
+            <i class="ri-arrow-drop-right-line arrowR"></i>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</nav>

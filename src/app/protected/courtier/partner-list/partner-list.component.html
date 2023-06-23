@@ -1,0 +1,102 @@
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mb-4">
+        <div class="col-md-12 d-flex justify-content-end">
+          <a href="javascript:void(0)" (click)="openDialogAddPartner()" class="btn btn-default">Ajouter un partenaire</a>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="headerPortlet">
+            <h3>Partenaires</h3>
+          </div>
+          <div class="bodyPortlet">
+            <div *ngIf="partenaires.length < 1"  class="row">
+              <div class="col-md-12">
+                <div class="alert alert-warning w-100 mt-2" role="alert">
+                  Aucune Partenaire à afficher.
+                </div>
+              </div>
+            </div>
+
+
+            <div *ngIf="partenaires.length >= 1" class="row">
+              <div class="col-md-12">
+                <form class="form-recherche mt-2 mb-2">
+                  <label>Recherche: </label>
+                  <input type="text" class="form-control ml-2" id="inlineFormInputName2" placeholder="">
+                </form>
+              </div>
+              <div class="col-md-12">
+
+                <div class="contentPieces">
+
+                  <ul class="list-table">
+                    <li class="list-table-header">
+                      <div class="colm colm-1">Nom & Prenom</div>
+                      <div class="colm colm-2">Email</div>
+                      <div class="colm colm-3">phone</div>
+                      <div class="colm colm-4">Adresse</div>
+                      <div class="colm colm-5">Etablissement</div>
+                      <div class="colm colm-6"></div>
+                    </li>
+                    <li class="list-table-row" *ngFor="let partenaire of partenaires">
+                      <div class="colm colm-1" data-label="Libelle">
+                        <span *ngIf="partenaire.partnerStatus === 'CONFIRME'" class="statusPiece verified-piece"><i class="ri-check-line" value='Press me' title='partenaire confirmé'></i></span>
+
+                        <span *ngIf="partenaire.partnerStatus === 'NON_CONFIRME'"
+                              class="statusPiece waiting-piece" value='Press me' title='partenaire non confirmé'><i class="ri-alarm-warning-line"></i></span>   &nbsp;{{partenaire.partenaireNom}} {{partenaire.partenairePrenom}}
+
+
+                      </div>
+                      <div class="colm colm-2" data-label="Descriptif"><p>{{partenaire.partenaireEmail}}</p></div>
+                      <div class="colm colm-3" data-label="Projet"><p>{{partenaire.partenairePhone}}</p></div>
+                      <div class="colm colm-4" data-label="Categorie"> <p>{{partenaire.partenaireAddress}}</p> </div>
+                      <div class="colm colm-5" data-label="Categorie"> <p>{{partenaire.partenaireEstablishment}}</p> </div>
+
+
+                      <div class="colm colm-6" >
+
+
+                        <div class="actionPieces">
+
+                          <a href="javascript:void (0)"  class="duplicate-piece" (click)="openDialogDetailsPartenaire(partenaire)" value='Press me' title='show partner details'>
+                            <i class="ri-contacts-line"></i>
+                          </a>
+                          <a href="javascript:void(0)"  class="edit-piece"  title='contact Partner ' placement="left"
+                             ngbPopover="en cours de développement" popoverTitle="en cours de developpement">
+                            <i class="ri-mail-send-line"></i>
+                          </a>
+
+
+                        </div>
+
+                      </div>
+
+                    </li>
+
+
+                  </ul>
+
+                </div>
+
+              </div>
+              <div class="col-md-12 mt-3">
+                <!--                <div class="nbrResultatRecherche">Résultats 1 à 3 sur 3</div>-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>

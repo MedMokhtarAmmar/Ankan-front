@@ -1,0 +1,47 @@
+<div class="row mt-5">
+  <div class="col-md-12">
+    <div class="card msgChat">
+
+      <div class="card-body">
+        <div class="contentmsgChat" *ngFor="let msg of messages">
+          <div *ngIf="msg.senderID==idUploader ; else elseblock">
+            <div class="chat-body2  ">
+              <div class="chat-text">
+              "{{msg.messageText}}"
+              </div>
+              <div class="chat-date">
+                {{msg.duration |date:'MM/dd/yyyy \'à\' hh:mm'}}
+              </div>
+              <div class="chat-sender">
+                <app-user-of-message [message]="msg"></app-user-of-message>
+              </div>
+            </div>
+          </div>
+          <ng-template #elseblock>
+            <div class="chat-body">
+              <div class="chat-text">
+                {{msg.messageText}}
+              </div>
+              <div class="chat-date">
+                {{msg.duration |date:'MM/dd/yyyy \'à\' hh:mm'}}
+              </div>
+              <div class="chat-sender">
+                <app-user-of-message [message]="msg"></app-user-of-message>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+        <form class="contentTextearea" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <textarea class="form-control" formControlName="messageText" id="exampleFormControlTextarea1"></textarea>
+          </div>
+          <div class="boutonChat">
+            <button type="submit" class="btn">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

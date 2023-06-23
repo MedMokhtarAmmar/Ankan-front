@@ -1,0 +1,103 @@
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row amb-4">
+      <div class="col-md-12 d-flex justify-content-end">
+<!--        <a routerLink="creer-projet" class="btn btn-default">Créer un dossier</a>-->
+<!--        <button id="token" class="btn btn-default" (click)="openDialogJwtToken()">Montrer Token</button>-->
+<!--        <a routerLink="/admin/accueil" class="btn btn-default">espace Admin</a>-->
+<!--        <a *ngIf="role==='COURTIER'" routerLink="/courtier/accueil" class="btn btn-info">espace Courtier</a>-->
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="headerPortlet">
+            <h3>Liste des projets</h3>
+          </div>
+          <div class="bodyPortlet">
+            <div class="row" *ngIf="projects.length>0;else emptyList">
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="contentProject">
+
+                  <ul class="list-table">
+                    <li class="list-table-header">
+                      <div class="colm colm-1">Nom du projet</div>
+                      <div class="colm colm-2">Nom du courtier</div>
+                      <div class="colm colm-3">Email</div>
+                      <div class="colm colm-4">Téléphone</div>
+                      <div class="colm colm-5">Etat du projet</div>
+
+                      <div class="colm colm-6"> operation</div>
+                    </li>
+                    <li class="list-table-row" *ngFor="let project of projects2;let i=index">
+                      <div class="colm colm-1" data-label="Nom du projet">{{project.projectName}}</div>
+
+                      <div class="col-md-7">
+                        <app-courtier-of-project [project]="project"></app-courtier-of-project>
+                      </div>
+
+
+                      <div class="colm colm-5" data-label="Etat du projet">
+                        <span *ngIf="project.status === 'NEW'" class="statusProject new-project">Nouveau</span>
+                        <span *ngIf="project.status === 'IN_PROGRESS'"
+                              class="statusProject progress-project">En cours</span>
+                        <span *ngIf="project.status === 'WAITING'"
+                              class="statusProject waiting-project">En attente</span>
+                        <span *ngIf="project.status === 'FINISHED'" class="statusProject finish-project">Terminé</span>
+                      </div>
+                      <div class="colm colm-6">
+                        <a href="javascript:void (0)" class="consulter" [routerLink]="['/client/project-info/', project.id ]"
+                           data-toggle="modal">Consulter</a>
+                      </div>
+
+
+                    </li>
+
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-12 mt-12">
+              <div style="position: center">
+                <a href="javaScript:void (0)" class="edit-piece"> <i class="ri-rewind-fill"
+                                                                     (click)="previousPage()"> </i></a>
+                &nbsp;
+                <label class="nbrResultatRecherche"> Page {{perPage}} à {{total}} sur  {{total}}  </label>
+                &nbsp;
+                <a href="javaScript:void (0)" class="edit-piece">
+                  <i class="ri-speed-fill" (click)="nextPage()"> </i></a>
+              </div>
+
+
+            </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+<ng-template #emptyList>
+  <div class="col-md-12">
+    <div class="alert alert-warning w-100 mt-2" role="alert">
+      Aucun projet à afficher.
+    </div>
+  </div>
+</ng-template>
+
+
+</main>

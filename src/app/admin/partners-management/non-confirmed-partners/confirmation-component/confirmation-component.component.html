@@ -1,0 +1,10 @@
+<div class="modal-body">
+  <p><strong>Etes-vous sûr que vous voulez confirmer le partenaire
+    <span class="text-primary">"{{partenaire.partenairePrenom}} {{partenaire.partenaireNom}}"</span> ?
+  </strong></p>
+</div>
+
+<div class="modal-footer">
+  <button id="annuler" type="button" class="btn btn-outline-secondary" (click)="closeModal()">Annuler</button>
+  <button id="confirmer"type="button" ngbAutofocus class="btn btn-danger" (click)="confirmPartner(partenaire)">Confirmer</button>
+</div>

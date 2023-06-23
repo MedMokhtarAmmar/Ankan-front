@@ -1,0 +1,91 @@
+<div>
+  <a class="nav-link __web-inspector-hide-shortcut__" href="#" style="align-content: baseline" data-toggle="dropdown"
+     aria-haspopup="true" aria-expanded="false">
+
+    <div *ngIf="!overten  ;else bloc">
+       <span class="badge badge-pill " [ngClass]="newNotif ? 'badge-danger' : 'badge-info'">{{numberofNewNotification}}
+         <i class="ri-notification-2-fill" style="color: white">   </i>
+        </span>
+    </div>
+    <ng-template #bloc>
+       <span class="badge badge-pill " [ngClass]="newNotif ? 'badge-danger' : 'badge-info'">+9
+         <i class="ri-notification-2-fill" style="color: white">   </i>
+        </span>
+    </ng-template>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" >
+    <span class="notification_count">3</span>
+    <a href="#" class="notificationLink">Notifications </a>
+    <div *ngIf="newNotif ;else NoNotification">
+    <ul *ngFor="let notification of ShownNotification ">
+      <li id="notification_li" *ngIf="notification">
+        <div class="notificationContainer">
+          <div id="notificationTitle" *ngIf="notification.title">{{notification.title}}</div>
+          <ng-container [ngSwitch]="notification.typeNotification">
+          <div id="notificationsBody" class="notifications" >
+
+            <ng-container *ngSwitchCase="'PROJET'">
+              <a  (click)="updateNotificationStauts(notification)" [routerLink]="['/client/project-info/',notification.objectID]" >
+              <!--              <i class="badge badge-pill  badge-danger"> <i class="ri-alert-line" style="color: white"></i> </i>-->
+              <i class="ri pr-2" style="color:#0c5460;" >  {{notification.messageID}} </i><br>
+              <i class="ri pr-2" style="color:#99AAB1 ; position:center" >{{notification.date |date:'yyyy-MM-dd'}} </i>
+            </a>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'PIECE'">
+              <a  (click)="updateNotificationStauts(notification)" [routerLink]="['/client/piece-info/',notification.objectID]" >
+              <!--              <i class="badge badge-pill  badge-danger"> <i class="ri-alert-line" style="color: white"></i> </i>-->
+              <i class="ri pr-2" style="color:#0c5460;" >  {{notification.messageID}} </i><br>
+              <i class="ri pr-2" style="color:#99AAB1 ; position:center" >{{notification.date |date:'yyyy-MM-dd'}} </i>
+            </a>
+            </ng-container>
+            <ng-container *ngSwitchCase="'DOCUMENT'">
+              <a  (click)="updateNotificationStauts(notification)" [routerLink]="['/courtier/piece-info/',notification.objectID]" >
+              <!--              <i class="badge badge-pill  badge-danger"> <i class="ri-alert-line" style="color: white"></i> </i>-->
+              <i class="ri pr-2" style="color:#0c5460;" >  {{notification.messageID}} </i><br>
+              <i class="ri pr-2" style="color:#99AAB1 ; position:center" >{{notification.date |date:'yyyy-MM-dd'}} </i>
+            </a>
+            </ng-container>
+
+          </div>
+          </ng-container>
+<!--          <ng-template #blocPiece>-->
+<!--            <a  (click)="updateNotificationStauts(notification)" [routerLink]="['/client/piece-info/',notification.objectID]" >-->
+<!--              &lt;!&ndash;              <i class="badge badge-pill  badge-danger"> <i class="ri-alert-line" style="color: white"></i> </i>&ndash;&gt;-->
+<!--              <i class="ri pr-2" style="color:#0c5460;" >  {{notification.messageID}} </i><br>-->
+<!--              <i class="ri pr-2" style="color:#99AAB1 ; position:center" >{{notification.date |date:'yyyy-MM-dd'}} </i>-->
+<!--            </a>-->
+<!--          </ng-template>-->
+        </div>
+      </li>
+    </ul>
+    </div>
+
+    <ng-template #NoNotification>
+      <ul >
+        <li id="notification_li">
+          <div class="notificationContainer">
+            <div id="notificationTitle"></div>
+            <div id="notificationsBody" class="notifications" >
+              <a >
+                <!--              <i class="badge badge-pill  badge-danger"> <i class="ri-alert-line" style="color: white"></i> </i>-->
+                <i class="ri pr-2" style="color:#0c5460;">  Pas de nouveaux notifications </i><br>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+<div *ngIf="typeUser==='CLIENT'; else courtierBloc">
+
+  <div class="notificationFooter"><a  [routerLink]="'/client/see-all'" >See All</a></div>
+
+
+</div>
+    <ng-template #courtierBloc>
+
+      <div class="notificationFooter"><a  [routerLink]="'/courtier/see-all'" >See All</a></div>
+
+    </ng-template>
+  </div>
+</div>

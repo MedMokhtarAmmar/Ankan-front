@@ -1,0 +1,39 @@
+/* Degrader */
+@mixin horizontal-gradient($from, $to, $stop: 100%) {
+  background-color: $from;
+  background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $from), color-stop($stop, $to));
+  background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
+  background-image: -o-linear-gradient(left, $from 0%, $to $stop);
+  background: -ms-linear-gradient(left, $from 0%, $to $stop);
+  background: linear-gradient(to right, $from 0%, $to $stop);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=1 );
+}
+
+/***** Transion ****/
+$duration: .3s !default;
+
+/* Fade */
+
+@mixin fade {
+  transition:$duration 
+}
+
+/* Bow shadow */
+@mixin shadow {
+  transition: box-shadow $duration ease-in-out;
+}
+
+
+/* Background opacity */
+@mixin alpha-background-color($color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  background-color: $color;
+}
+
+/* Color opacity */
+@mixin alpha-color($color) {
+  color: $color;
+}

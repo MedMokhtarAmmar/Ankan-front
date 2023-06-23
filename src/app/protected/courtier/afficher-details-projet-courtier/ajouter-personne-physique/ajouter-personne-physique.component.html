@@ -1,0 +1,97 @@
+<p>ajouter-personne-physique works!</p>
+<main role="main">
+
+  <div class="container-fluid mainContent">
+    <div class="portlet">
+      <div class="headerPortlet">
+        <h3>Ajouter un nouveau client au projet: "{{project2.projectName}}"</h3>
+      </div>
+      <div class="bodyPortlet">
+
+      <div class="form-group rechercheHeader mr-5">
+        <label for="recherche">Chercher par E-mail </label>
+        <input [(ngModel)]="searchText" (ngModelChange)="getUserByEmail()" type="text"
+               class="form-control dropdown-toggle" id="recherche" name="email"
+               data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false" autocomplete="off">
+        <div class="dropdown-menu">
+          <div class="suggestBody">
+            <a href="javascript:void(0)" (click)="clickSearchText(user)"
+               *ngFor="let user of clients ">{{user.firstName}} {{user.lastName}}  </a>
+          </div>
+        </div>
+      </div>
+    <div class="row mt-2">
+      <div class="col-lg-12 col-md-12">
+
+
+        <div class="portlet">
+
+
+          <div class="bodyPortlet">
+
+            <form class="form-default mt-5 ml-3 mb-5 mr-3" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+
+
+              <div class="row">
+
+                <div class="form-group col-md-4">
+                  <label for="projectName">Nom du projet </label>
+                  <input type="text" class="form-control" formControlName="projectName" id="projectName" value="{{project2.projectName}}" disabled>
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="clientFirstName">Nom du client</label>
+                  <input type="text" class="form-control" formControlName="clientFirstName" id="clientFirstName">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="clientLastName">Prenom du client</label>
+                  <input type="text" class="form-control" formControlName="clientLastName" id="clientLastName">
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" formControlName="clientEmail" class="form-control" id="inputEmail4">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="nameClient">Téléphone</label>
+                  <input type="text" formControlName="clientPhone" class="form-control" id="nameClient">
+                  <span class="focus-border"></span>
+                </div>
+
+                <div class="form-group col-md-2" formControlName="projectStatus">
+                  <label> Etat du projet</label>
+                  <div class="colm colm-5" data-label="Etat">
+                    <span *ngIf="project2.status === 'NEW'" class="statusProject new-project">Nouveau</span>
+                    <span *ngIf="project2.status === 'IN_PROGRESS'"
+                          class="statusProject progress-project">En cours</span>
+                    <span *ngIf="project2.status === 'WAITING'" class="statusProject waiting-project">En attente</span>
+                    <span *ngIf="project2.status === 'FINISHED'" class="statusProject finish-project">Terminé</span>
+                  </div>
+                </div>
+              </div>
+              <button id="submitbutton" type="submit" class="btn-default">Ajouter client</button>
+              &nbsp;&nbsp;
+              <button id="cancelbutton"  [routerLink]="['/courtier/project-info/', project2.id ]" class="btn-cancel">Annuler</button>
+            </form>
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

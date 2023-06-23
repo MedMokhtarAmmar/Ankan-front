@@ -1,0 +1,9 @@
+export class Piece {
+  constructor() {}
+  public id: string;
+  public pieceName: string;
+  public description: string;
+  public uploaderID: string;
+  public categorieID: string;
+  public projetID: string;
+}

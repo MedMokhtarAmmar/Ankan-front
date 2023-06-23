@@ -1,0 +1,97 @@
+<div class="col-lg-12 col-md-12">
+  <div class="portlet">
+    <div class="headerPortlet">
+      <h3>Upload Document </h3>
+    </div>
+
+    <div class="container-fluid mainContent">
+
+      <div class="row mt-2">
+        <div class="col-lg-12 col-md-12">
+          <div class="portlet">
+            <div class="bodyPortlet">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+
+
+                  <form class="form-default" [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+                    <div class="row mb-3">
+
+
+                      <div class="form-group col-md-6">
+                        <label for="documentTitle">Nom du document</label>
+                        <input type="text" class="form-control" id="documentTitle" formControlName="documentTitle">
+                        <span class="focus-border"></span>
+                      </div>
+
+
+                      <div class="form-group col-md-6">
+                        <label for="documentDescription">description du document</label>
+                        <textarea type="text" formControlName="documentDescription" class="form-control"
+                                  id="documentDescription"></textarea>
+                        <span class="focus-border"></span>
+                      </div>
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-9">
+                        <div class="row monCompte d-flex justify-content-around align-items-center">
+
+                          <div class="col-lg-12 mb-8">
+                            <h4 class="text-center mb-4">Aperçu fichier</h4>
+                            <div class="img-monCompte" *ngIf="type ;else elseBlock">
+                              <img [src]="url">
+
+                            </div>
+                            <ng-template #elseBlock>
+                              <div class="img-monCompte">
+
+                                <object [data]="url" type="application/pdf">
+                                  <embed [src]="url" type="application/pdf"/>
+                                </object>
+                                <pdf-viewer [src]="url" [render-text]="true" style="display: block;"></pdf-viewer>
+                              </div>
+
+                            </ng-template>
+                            <small class="form-text text-center">
+                              (Choisir un fichier jpg, jpeg ou png)
+                            </small>
+                            <div class="form-group">
+                              <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                                     (change)="onSelectFile($event)">
+                              <label for="exampleFormControlFile1">
+
+                                Upload
+                                <i class="ri-upload-2-fill"></i>
+
+
+                              </label>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row mb-3 d-flex justify-content-center">
+                      <div class="col-xl-6 col-lg-8 col-md-8 d-flex justify-content-center">
+                        <button  id="addfile" type="submit" class="btn btn-default w-100">Ajouter le fichier</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

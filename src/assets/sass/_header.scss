@@ -1,0 +1,188 @@
+.header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    @include display-flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: solid 1px $gray-3;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    .menuMobile{
+        display: none;
+        position: absolute;
+        top: 12px;
+        left: 25px;
+        margin-right: .5rem;
+        a:link,
+        a:visited{
+            @include alpha-color(rgba($blue, 0.5));
+            font-size: 1.5rem;
+        }
+        a:hover{
+            text-decoration: none;
+            color: $blue;
+        }
+    }
+    .navbar-brand {
+        height: 59px;
+        @include display-flex;
+        align-items: center;
+        background-color: white;
+        padding:0;
+        margin: 0;
+        img{
+          width: 120px;
+        }
+      }
+    .searchHeader{
+        .form-control{
+            border: none;
+            height: calc(1.2em + 1.2rem + 2px);
+            padding-left: 1.8rem;
+            //background: url(../img/search.svg) no-repeat left;
+            @include input-placeholder {
+                color: $gray-3;
+                font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif;
+                font-weight: 300;
+            }
+            &:focus{
+                box-shadow: none;;
+            }
+        }
+    }
+    .topBarHeader{
+        @include display-flex;
+        align-items: center;
+        .notification{
+            position:relative !important;
+            height: 45px;
+            width: 45px;
+            margin: 0 .4rem;
+            a:link,
+            a:visited{
+                @include display-flex;
+                justify-content: center;
+                align-items: center;
+                @include border-radius(50%);
+                height: 45px;
+                width: 45px;
+                color: $gray-4;
+                i{
+                    font-size: 1.3rem;
+                }
+            }
+            a:hover{
+                @include alpha-background-color(rgba($blue, 0.1), white);
+                text-decoration: none;
+                i{
+                    @include alpha-color(rgba($blue, 0.5));
+                }
+            }
+            .infoNotif {
+                position: absolute;
+                left: 75%;
+                width: 16px;
+                height: 16px;
+                background-clip: padding-box;
+                margin-left: -9px;
+                top: 4px;
+                color: #fff;
+                background: $red;
+                border-radius: 50%;
+                font-size: 0.7rem;
+            }
+        }
+        .parametre{
+            @extend .notification;
+        }
+
+        .topbarUser{
+            margin: 0 .4rem;
+            @include display-flex;
+            align-items: center;
+            img{
+                align-self: center;
+                max-height: 38px;
+                max-width: 38px;
+                border-radius: 50%;
+            }
+            .nameUser {
+                font-family: 'Poppins-Regular',Helvetica, Arial, sans-serif;
+                font-weight: normal;
+                font-size: 0.8rem;
+                color: $gray-2;
+                padding: 0 .2rem 0 .6rem
+            }
+        }
+
+        .dropdown{
+            a.arrowDropDown:link,
+            a.arrowDropDown:visited{
+                i{
+                    color: $gray-1;
+                    font-size: 1.1rem;
+                }
+            }
+            a.arrowDropDown:hover{
+                text-decoration: none;
+            }
+            .dropdown-menu {
+
+                @include box-shadow(rgba(34, 56, 121, .2) 0px 0px 15px 0);
+                @include border-radius(3px);
+                border: none;
+                top: 10px !important;
+                min-width: 10rem;
+                padding: 0;
+                a:link,
+                a:visited{
+                    font-size: .8rem;
+                    padding: 6px 10px;
+                    border-bottom: 1px solid $gray-3;
+                    color: $blue;
+                }
+                a:hover{
+                    background: rgba(0, 0, 0, 0.04);
+                    text-decoration: none;
+                }
+                a:last-child{
+                    border-bottom: none;
+                }
+
+                a > i {
+                    font-size: 1.1rem;
+                    color: $blue;
+                }
+
+
+              }
+        }
+    }
+
+  }
+
+  @media (max-width: 1024px){
+    .header{
+        .searchHeader{
+            margin-left: 40px;
+        }
+        .menuMobile{
+            @include display-flex;
+        }
+        .navbar-brand{
+            margin: 0 0 0 45px;
+        }
+        .topBarHeader{
+            .topbarUser{
+              .nameUser{
+                  display: none;
+              }
+            }
+        }
+    }
+  }

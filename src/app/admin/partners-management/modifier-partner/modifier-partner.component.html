@@ -1,0 +1,83 @@
+<div mat-dialog-content>
+
+  <div class="card card-info">
+    <div class="card-header">
+      <h3 class="card-title">Modifier Partenaire</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form role="form"[formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="card-body">
+
+        <div class="form-group row">
+          <div class="col-6">
+            <label id="partenaireNom" style="color:#0c5460" for="partenaireNom">Nom:</label>
+            <input class="form-control" formControlName="partenaireNom" type="text" placeholder=".col-6"   >
+          </div>
+          <div class="col-6">
+            <label id="partenairePrenom" style="color:#0c5460" for="partenairePrenom">Prenom:</label>
+            <input class="form-control"  formControlName="partenairePrenom" type="text" placeholder=".col-6"   >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+            <label id="partenaireEmail" style="color:#0c5460"for="partenaireEmail">Partenaire Email:</label>
+            <input class="form-control" formControlName="partenaireEmail" type="text" placeholder=".col-6"   >
+          </div>
+          <div class="col-6">
+            <label id="partenairePhone" style="color:#0c5460" for="partenairePhone">Partenaire Phone:</label>
+            <input class="form-control"  formControlName="partenairePhone" type="text" placeholder=".col-6"   >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+            <label  style="color:#0c5460" for="partenaireEmail">Partenaire Establishment:</label>
+            <input class="form-control" formControlName="partenaireEstablishment" type="text" placeholder=".col-6"   >
+          </div>
+          <div class="col-6">
+            <label style="color:#0c5460" for="partenairePhone">Partenaire Service Name:</label>
+            <input class="form-control"  formControlName="partenaireServiceName" type="text" placeholder=".col-6"   >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-12">
+            <label id="firstName" style="color:#0c5460" for="firstName">Partenaire Address :</label>
+            <input class="form-control" formControlName="partenaireAddress" type="text" placeholder=".col-6"   >
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+            <label style="color:#0c5460" for="firstName">Address 2:</label>
+            <input class="form-control" formControlName="address2" type="text" va  >
+          </div>
+          <div class="col-6">
+            <label style="color:#0c5460" for="firstName">Address3 :</label>
+            <input class="form-control"  formControlName="address3" type="text" placeholder=".col-6"   >
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+            <label style="color:#0c5460" for="firstName">code Postal:</label>
+            <input class="form-control" formControlName="codePostal" type="text" placeholder=".col-6"   >
+          </div>
+          <div class="col-6">
+            <label style="color:#0c5460" for="firstName">Partenaire Siren:</label>
+            <input class="form-control"  formControlName="partenaireSiren" type="text" placeholder=".col-6"   >
+          </div>
+        </div>
+
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button  id="Submit" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

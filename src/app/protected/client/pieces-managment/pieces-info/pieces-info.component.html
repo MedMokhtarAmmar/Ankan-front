@@ -1,0 +1,193 @@
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mt-2">
+
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="headerPortlet" *ngIf="piece">
+            <h3>Details {{piece.pieceName}}
+              <span *ngIf="piece.pieceStatus === 'NEW'" class="statusPiece new-piece">Nouveau</span>
+              <span *ngIf="piece.pieceStatus === 'VERIFIED'" class="statusPiece verified-piece">Vérifiée</span>
+              <span *ngIf="piece.pieceStatus === 'WAITING'" class="statusPiece waiting-piece">En attente</span></h3>
+          </div>
+          <div class="bodyPortlet">
+
+            <div class="form-default mt-5 ml-3 mb-5 mr-3">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Catégorie du piéce</label>
+                  <label type="texte" class="form-control" id="inputEmail4"
+                         *ngIf="categorie">{{categorie.libelle}}</label>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Projet du piéce</label>
+                  <label type="texte" class="form-control" id="inputEmail4"
+                         *ngIf="project">{{project.projectName}}</label>
+                </div>
+              </div>
+              <div class="row mt-3" *ngIf="piece">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Libellé</label>
+                  <input type="texte" class="form-control" id="inputEmail4" value="{{piece.pieceName}}" disabled>
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Descriptif</label>
+                  <input type="texte" class="form-control" id="inputEmail4" value="{{piece.description}}" disabled>
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Aperçu du fichier</label>
+                  <div class="contentUpload"  *ngIf="documents.length>0 ;else no_image" >
+
+
+
+
+                      <ngb-carousel  >
+                        <ng-template ngbSlide *ngFor="let image of fileURL" >
+                          <div *ngIf="image[0].extension!=='application/pdf'; else Pdfbloc">
+                            <div class="row monCompte d-flex justify-content-around align-items-center" >
+                              <img  style=" width:100%; height: 190px !important;" alt=""  title="" class="img-circle img-thumbnail isTooltip" src="{{image[0].path}}" alt="Angular Carousel 1">
+                            </div>
+                          </div>
+
+                          <ng-template #Pdfbloc>
+                            <div class="row monCompte d-flex justify-content-around align-items-center" >
+
+                              <pdf-viewer  [src]="image[0].path" [render-text]="true" style=" width:100%; height: 190px !important;" [autoresize]="true" [page]="2" [show-all]="true" [fit-to-page]="true" [original-size]="false"> </pdf-viewer>
+
+                            </div>
+                          </ng-template>
+
+                          <div class="carousel-caption">
+                            <h3>{{image[0].titre}}</h3>
+
+                          </div>
+                        </ng-template>
+                      </ngb-carousel>
+                    </div>
+
+
+
+
+
+                  <ng-template #no_image>
+                    <div class="contentUpload" style="position: center">
+
+                      <img src="assets/img/no-document.png" style="width: 90px">
+                      <br>
+                      <a>Pas des Documents à afficher</a>
+
+                    </div>
+                  </ng-template>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Modèle</label>
+                  <div class="contentUpload">
+                    <ngb-carousel  >
+                      <ng-template ngbSlide  >
+                        <div >
+                          <div class="row monCompte d-flex justify-content-around align-items-center" >
+                            <img  style=" width:100%; height: 190px !important;" alt=""  title="" class="img-circle img-thumbnail isTooltip" src="{{model}}" alt="Angular Carousel 1">
+                          </div>
+                        </div>
+
+
+
+                        <div class="carousel-caption">
+
+
+                        </div>
+                      </ng-template>
+                    </ngb-carousel>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card pieceProject">
+              <div class="card-header">
+                <span>Liste de Documents</span>
+                <a href="javaScript:void (0)" (click)="openDialogAjoutDocument(piece)" >Télécharger</a>
+              </div>
+              <div class="card-body">
+
+                <div class="contentPieces">
+
+                  <ul class="list-table">
+                    <li class="list-table-header" *ngIf="documents.length>=1 ; else elsebloc">
+                      <div class="colm colm-5"></div>
+                    </li>
+
+                    <li class="list-table-row" *ngFor="let document of documents">
+                      <div class="colm colm-1" data-label="Libelle">{{document.documentTitle}}</div>
+                      <div *ngIf="document.documentDescription.length<20 ; else bloc2" class="colm colm-1"
+                           data-label="Libelle">{{document.documentDescription}}</div>
+                      <ng-template #bloc2>
+                        <div class="colm colm-1"
+                             data-label="Libelle">{{document.documentDescription.substr(0, 30) + ' ...'}}</div>
+
+                      </ng-template>
+                      <div class="colm colm-5" data-label="Etat du projet">
+                        <span *ngIf="document.documentStatus === 'NEW'" class="statusPiece new-piece">Nouveau</span>
+                        <span *ngIf="document.documentStatus === 'VERIFIED'"
+                              class="statusPiece verified-piece">Vérifiée</span>
+                        <span *ngIf="document.documentStatus === 'WAITING'"
+                              class="statusPiece waiting-piece">En attente</span>
+                      </div>
+                      <div class="colm colm-5">
+                        <div class="actionPieces">
+                          <a href="javaScript:void (0)" class="duplicate-piece"
+                             (click)="openDialogDetailsDocument(document)">
+                            <i class="ri-file-copy-2-line"></i>
+                          </a>
+<!--                          <a href="javaScript:void (0)" class="edit-piece">-->
+<!--                            <i class="ri-edit-box-line"></i>-->
+<!--                          </a>-->
+
+                        </div>
+                      </div>
+                    </li>
+
+                    <ng-template #elsebloc>
+
+                      <li class="list-table-header">
+                        <div class="colm colm-12">il n'y a pas des documents pour cette piéce!</div>
+                        <a href="javaScript:void (0)" (click)="openDialogAjoutDocument(piece)" class="upload-piece">
+
+                          <i class="ri-file-upload-line"></i>
+                        </a>
+                      </li>
+
+
+                    </ng-template>
+                  </ul>
+
+                </div>
+                <div class="row mt-5">
+                  <div class="col-md-12">
+                    <div class="card msgChat">
+                      <div class="card-header">
+
+                        <h4>Envoyez vos messages ici</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <app-conversation [id]="idPiece" [type]="type"></app-conversation>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

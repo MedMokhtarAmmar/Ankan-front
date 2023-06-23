@@ -1,0 +1,14 @@
+
+<div class="modal-body" >
+  <p *ngIf="client"><strong>Etes-vous sûr que vous voulez supprimer  <span class="text-primary">"{{this.client.firstName}} {{this.client.lastName}}"</span>  du ce projet ?</strong></p>
+  <p>    Confirmez-vous la suppression de la personne et toutes les pièces qui y sont associées ?
+    <span class="text-danger">Cette opération ne peut pas être annulée.</span>
+  </p>
+</div>
+<div class="modal-footer">
+  <button id="annuler" type="button" class="btn btn-outline-secondary"  (click)="closeModal()">Annuler</button>
+  <button id="confirmer"type="button" ngbAutofocus class="btn btn-danger" (click)="supprimerClient(client)">Confirmer</button>
+</div>
+
+
+

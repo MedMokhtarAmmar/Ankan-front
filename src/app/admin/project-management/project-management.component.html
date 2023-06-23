@@ -1,0 +1,80 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col" >
+        <h4>Projets'List</h4>
+      </div>
+    </div>
+  </div>
+
+<div class="card-body">
+  <div class="table-responsive">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th style=" text-align: center">Poject Name </th>
+      <th style=" text-align: center">Status</th>
+      <th style=" text-align: center">lastConsultationDay</th>
+      <th style="text-align: center">MailCourtier</th>
+      <th style="text-align: center">MailClient</th>
+      <th style="text-align: center">Pieces' Number</th>
+      <th style="text-align: center">Required Pieces</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let project of projects">
+      <td style="text-align: center">{{project.projectName}}</td>
+      <td style="align-content: center">
+        <button *ngIf="project.status === 'NEW' " class="btn btn-block btn-success active" type="button" [disabled]="true">{{project.status}}</button>
+        <button *ngIf="project.status === 'IN_PROGRESS' "class="btn btn-block btn-warning active" type="button" [disabled]="true">{{project.status}}</button>
+        <button *ngIf="project.status === 'FINISH'  " class="btn btn-block btn-info active" type="button" [disabled]="true">{{project.status}}</button>
+      </td>
+      <td style="text-align: center">{{project.lastConsultationDay}}</td>
+      <td style="text-align: center"><app-ajout-nom-courtier [project]="project" ></app-ajout-nom-courtier></td> <!-- le projet est un input -->
+      <td style="text-align: center"><app-ajout-nom-user [project]="project" ></app-ajout-nom-user></td>
+      <td style="text-align: center"> <app-piecesnumber [project]="project" ></app-piecesnumber></td>
+      <td style="text-align: center">
+
+          <button class="btn btn-block btn-success active" type="button" (click)="openDialogShowPieces(project)">Show Pieces </button>
+
+
+</td>
+</tr>
+</tbody>
+</table>
+  </div>
+</div>
+
+<div class="card-footer">
+<div class="row">
+<div class="col">
+<ul class="pagination">
+<li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="firstPage()" > << </a></li>
+<li class="page-item"><a class="page-link" href="javascript:void(0)" (click)="previousPage()" > < </a></li>
+<li class="page-item active">
+<a class="page-link" href="javascript:void(0)">{{page}}</a>
+</li>
+<li class="page-item"><a class="page-link" (click)="nextPage()" href="javascript:void(0)"> > </a></li>
+</ul>
+</div>
+
+<div class="col">
+<div class="btn-group" dropdown style="align-content: center">
+<button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+Par Page: {{this.perPage}} <span class="caret"></span>
+</button>
+<ul *dropdownMenu class="dropdown-menu" role="menu">
+<li class="dropdown-item" (click)="optionOne()">5</li>
+<li class="dropdown-item" (click)="optionTwo()">10</li>
+<li class="dropdown-item" (click)="optionThree()">20</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+
+
+</div>

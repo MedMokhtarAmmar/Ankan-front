@@ -1,0 +1,131 @@
+<app-header-courtier></app-header-courtier>
+<app-sidebar-courtier></app-sidebar-courtier>
+
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mb-4">
+      <div class="col-md-12 d-flex justify-content-end btn-top-project">
+        <a href="javascript:void(0)" class="btn btn-default link-blue">Ouvrir l'espace client</a>
+        <a href="javascript:void(0)" class="btn btn-default link-yellow">Partager le projet</a>
+        <a href="javascript:void(0)" class="btn btn-default link-green">Générer un PDF</a>
+        <a href="javascript:void(0)" class="btn btn-default link-red">Télécharger le projet</a>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="bodyPortlet">
+            <div class="form-group rechercheHeader mr-5">
+              <label for="recherche">Chercher par E-mail </label>
+              <input [(ngModel)]="searchText" (ngModelChange)="getUserByEmail()" type="text"
+                     class="form-control dropdown-toggle" id="recherche" name="email"
+                     data-toggle="dropdown" aria-haspopup="true"
+                     aria-expanded="false" autocomplete="off">
+              <div class="dropdown-menu">
+                <div class="suggestBody">
+                  <a href="javascript:void(0)" (click)="clickSearchText(user)"
+                     *ngFor="let user of clients ">{{user.firstName}} {{user.lastName}}  </a>
+                </div>
+              </div>
+            </div>
+
+            <form class="form-default mt-5 ml-3 mb-5 mr-3" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+
+
+              <div class="row">
+
+                <div class="form-group col-md-4">
+                  <label for="projectName">Nom du projet </label>
+                  <input type="text" class="form-control" formControlName="projectName" id="projectName">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="clientFirstName">Nom du client</label>
+                  <input type="text" class="form-control" formControlName="clientFirstName" id="clientFirstName">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="clientLastName">Prenom du client</label>
+                  <input type="text" class="form-control" formControlName="clientLastName" id="clientLastName">
+                  <span class="focus-border"></span>
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="form-group col-md-4">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" formControlName="clientEmail" class="form-control" id="inputEmail4">
+                  <span class="focus-border"></span>
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="nameClient">Téléphone</label>
+                  <input type="text" formControlName="clientPhone" class="form-control" id="nameClient">
+                  <span class="focus-border"></span>
+                </div>
+
+<!--                <div class="form-group col-md-4">-->
+<!--                  <label for="inputState">Etat du projet</label>-->
+<!--                  <select id="inputState" class="form-control" formControlName="projectStatus">-->
+<!--                    <option selected value="NEW">Nouveau</option>-->
+<!--                    <option selected value="IN_PROGRESS">En cours</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+              </div>
+              <button id="submitbutton" type="submit" class="btn-default">Creer projet</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h3>Personnes du dossier</h3>
+      </div>
+      <div class="col-xl-4 col-lg-5 col-md-6 mb-3">
+        <div class="link-add-personne">
+          <a href="javascript:void(0)" class="btn disabled">Ajouter personne morale</a>
+        </div>
+
+      </div>
+      <div class="col-xl-4 col-lg-5 col-md-6 mb-3">
+        <div class="link-add-personne">
+          <a href="javascript:void(0)" class="btn">Ajouter personne physique</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 mb-3">
+        <h3>Pièces du Projet</h3>
+      </div>
+      <div class="col-xl-4 col-lg-5 col-md-6">project-info
+
+        <div class="card pieceProject">
+          <div class="card-header">
+            <span>Pièces communes</span>
+            <a href="javascript:void(0)">Télécharger</a>
+          </div>
+          <div class="card-body">
+            <form class="form-inline justify-content-center">
+              <div class="form-group mx-sm-2">
+                <input type="texte" class="form-control" id="inputPassword2" placeholder="">
+              </div>
+              <button type="submit" class="btn ">
+                <i class="ri-add-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+</main>

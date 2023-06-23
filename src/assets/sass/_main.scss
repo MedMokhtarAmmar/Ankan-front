@@ -1,0 +1,18 @@
+[role="back"] {
+    background-color: $gray-4;
+    min-height: 100vh;
+}
+
+[role="main"] {
+    padding-top: 60px;
+    padding-left: 250px;
+    max-width: 100%;
+    -webkit-box-flex: 1;
+    flex: 1 auto;
+    -ms-flex: 1 0 0px;
+    min-width: 0;
+}
+
+.mainContent{
+    padding: 25px 10px;
+}

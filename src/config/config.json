@@ -1,0 +1,25 @@
+{
+  "production": false,
+  "apiUrl": "http://localhost:8080",
+  "amplify": {
+    "Auth": {
+      "identityPoolId": "eu-west-1:dc82a06d-eadb-454f-a257-4602707aaf5e",
+      "identityPoolRegion": "eu-west-1",
+      "mandatorySignIn": true,
+      "REGION": "eu-west-1",
+      "userPoolId": "eu-west-1_fFoD9sLHZ",
+      "userPoolWebClientId": "3dai7rr3i1iole1v240kqc2439"
+    },
+    "Storage": {
+      "AWSS3": {
+        "bucket": "ankan-uploads",
+        "region": "eu-west-1"
+      },
+      "customPrefix": {
+        "public": "public/",
+        "protected": "protected/",
+        "private": "private/"
+      }
+    }
+  }
+}

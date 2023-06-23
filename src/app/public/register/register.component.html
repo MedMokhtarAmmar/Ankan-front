@@ -1,0 +1,152 @@
+
+
+
+<div class="login">
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center h-100 pt-4 pb-4 content-login">
+      <div class="col-xl-5 col-lg-6 col-md-10">
+        <div class="wrap-login">
+                        <span class="logo-login">
+                           <img src="../../../assets/img/logo-ankan.png" alt="">
+                        </span>
+
+          <form class="needs-validation mt-4" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-md-12 form-group d-flex justify-content-center align-items-center">
+
+                <p class="postuler"> Vous êtes </p>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input" (click)="switchToCourtier()"   checked  >
+                  <label class="custom-control-label" for="customRadioInline3" >Courtier</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input"  (click)="switchToClient()">
+                  <label class="custom-control-label" for="customRadioInline4">Client</label>
+                </div>
+              </div>
+
+<!--              <div class="col-md-12 col-11">-->
+
+<!--                <div class="form-group">-->
+<!--                  <label for="validationName">Votre nom</label>-->
+<!--                  <input type="text" class="form-control" id="validationName" name="name" formControlName="firstName"-->
+<!--                         aria-describedby="input-group-prepend" placeholder="">-->
+<!--                  <div class="invalid-feedback">-->
+<!--                    Entrez Votre Nom-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="f.firstName.invalid && submitted ">champ oubligatoire</div>-->
+
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              <div class="col-md-12 col-11">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="validationPrenom">Votre prénom</label>-->
+<!--                  <input type="text" class="form-control" id="validationPrenom" name="lastName" formControlName="lastName"-->
+<!--                         placeholder="">-->
+<!--                  <div class="invalid-feedback" >-->
+<!--                    Entrez Votre Prénom-->
+<!--                  </div>-->
+<!--                  <div class="alert alert-danger" *ngIf="f.lastName.invalid ">champ oubligatoire</div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+
+              <div class="col-md-12 col-11">
+                <div class="form-group">
+                  <label for="validationUsername">Votre Nom d'Utilisateur</label>
+                  <input type="text" class="form-control" id="validationUsername" name="userName" formControlName="userName"
+                         placeholder="">
+                  <div class="invalid-feedback">
+                    Entrez Votre  Nom d'Utilisateur
+                  </div>
+                  <div class="alert alert-danger" *ngIf="f.userName.invalid && submitted">champ oubligatoire</div>
+                </div>
+              </div>
+              <div class="col-md-12 col-11">
+
+                <div class="form-group">
+                  <label for="validationDEmail">Votre adresse email</label>
+                  <input type="email" class="form-control" id="validationDEmail" name="email" ngModel [email]="true"
+                         formControlName="userEmail" [pattern]="emailPattern"
+                         placeholder="" aria-describedby="input-group-prepend">
+                  <div class="invalid-feedback">
+                    Entrez une adresse email valide
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-12 col-11">
+                <div class="form-group">
+                  <label for="validationPassword">Votre mot de passe</label>
+                  <input type="password" class="form-control" id="validationPassword" formControlName="userPassword" required minlength="6"
+                         name="password" placeholder="">
+                  <div class="invalid-feedback">
+                    Entrez Votre mot de passe
+                  </div>
+                  <div class="alert alert-danger" *ngIf="f.userPassword.invalid && submitted">veuillez renseigner ce
+                    champ
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-md-12 col-11">
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Confirmation de votre mot de passe</label>
+                  <input type="password" class="form-control" id="validationConfirmPassword" formControlName="confirmPassword" required minlength="6"
+                         name="confirmPasswrod" aria-describedby="input-group-prepend"
+                         placeholder="">
+                  <div class="invalid-feedback">
+                    Entrez de nouveau Votre Mot de passe
+                  </div>
+                  <div class="alert alert-danger" *ngIf="f.confirmPassword.touched && f.confirmPassword.value!==f.userPassword.value">Ces mots de passe ne correspondent pas essayez à nouveau</div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <div class="row d-flex justify-content-center">
+
+              <div class="col-md-12 col-11">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1"  (click)="accepted=true" >
+                  <label class="custom-control-label" for="customCheck1" >J'accepte les conditions
+                    générales de vente et d'utilisation</label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12  d-flex mt-5 align-items-center justify-content-center">
+                <button type="submit" class="btn cnx w-100" [disabled]="!registerForm.valid || (f.confirmPassword.value!==f.userPassword.value) || this.accepted===false"  >
+                  <span></span>
+                  <span>Inscription</span>
+                </button>
+              </div>
+            </div>
+
+
+          </form>
+
+          <p class=" msgInscriptionBottom mt-5 text-center">
+            Vous avez déjà un compte?
+            <a [routerLink]="'/'">Connectez-vous ici</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

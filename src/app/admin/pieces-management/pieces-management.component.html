@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col" >
+        <h4>Pieces'List</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th style=" text-align: center">Piece Name </th>
+        <th style=" text-align: center">Description</th>
+        <th style=" text-align: center">Categorie</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let piece of pieces">
+        <td style="text-align: center">{{piece.pieceName}}</td>
+        <td style="text-align: center">{{piece.description}}</td>
+        <td style="text-align: center"><app-categorie-libelle [piece]="piece"></app-categorie-libelle></td>
+
+
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

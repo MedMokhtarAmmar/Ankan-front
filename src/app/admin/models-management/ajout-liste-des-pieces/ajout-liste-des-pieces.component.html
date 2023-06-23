@@ -1,0 +1,56 @@
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<div mat-dialog-content>
+
+  <div class="card card-info">
+    <div class="card-header">
+      <h3 class="card-title">Ajouter catégorie</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+
+    <div class="card-body">
+
+
+
+
+      <div class="form-group">
+        <label for="description">Nom du Modéle:</label>
+        <input type="text" class="form-control" [(ngModel)]="listName" id="description"
+               placeholder="Entrer la description de cette catégorie" name="listName" ngDefaultControl>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" [(ngModel)]="description" id="description"
+               placeholder="Entrer la description de cette catégorie" name="description" ngDefaultControl>
+      </div>
+      <!-- /.card-body -->
+      <div>
+        <ejs-multiselect id='localData' name="value" ngDefaultControl [dataSource]='models' [fields]='localFields' [placeholder]='localWaterMark' #local='ngModel' [(value)]='value'[(ngModel)]='value' (mouseleave)="chargerlist()"
+        ></ejs-multiselect>
+      </div>
+
+      <div class="card-footer">
+        <div *ngIf="selectedModel.length>0 ;else bloc">
+          <button type="submit" class="btn btn-primary" (click)="ajouterListPiece()" > Submit</button>
+        </div>
+        <ng-template #bloc>
+          <button type="submit" class="btn btn-primary" (click)="ajouterListPiece()" disabled> Submit</button>
+
+        </ng-template>
+
+      </div>
+    </div>
+
+  </div>
+</div>

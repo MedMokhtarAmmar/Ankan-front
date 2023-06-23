@@ -1,0 +1,152 @@
+<app-header-client></app-header-client>
+<app-sidebar-client></app-sidebar-client>
+
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mb-4">
+      <div class="col-md-12 d-flex justify-content-end btn-top-project">
+        <a *ngIf="role==='COURTIER'" href="#" class="btn btn-default link-blue" [routerLink]="['/courtier/project-info/', project.id ]">Ouvrir l'espace courtier</a>
+        <a href="javascript:void(0)" class="btn btn-default link-yellow" placement="bottom"
+           ngbPopover="en cours de développement" popoverTitle="en cours de developpement">Partager le projet</a>
+        <a href="javascript:void(0)" class="btn btn-default link-green" placement="bottom"
+           ngbPopover="en cours de développement" popoverTitle="en cours de developpement">Générer un PDF</a>
+        <a href="javascript:void(0)" class="btn btn-default link-red" placement="bottom"
+           ngbPopover="en cours de développement" popoverTitle="en cours de developpement">Télécharger le projet</a>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="bodyPortlet">
+
+            <div class="form-default mt-5 ml-3 mb-5 mr-3" *ngIf="courtier">
+
+
+              <div class="row" *ngIf="project">
+              <div class="form-group col-md-4">
+                <label for="projectName">Nom du projet</label>
+                <input type="text" class="form-control" id="projectName" value="{{project.projectName}}" disabled>
+                <span class="focus-border"></span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="courtierFirstName">Nom du Courtier</label>
+                <input type="text" class="form-control" id="courtierFirstName" value="{{courtier.firstName}}"
+                       disabled>
+                <span class="focus-border"></span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="courtierLastName">Prenom du Courtier</label>
+                <input type="text" class="form-control" id="courtierLastName" value="{{courtier.lastName}}" disabled>
+                <span class="focus-border"></span>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="form-group col-md-4">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" value="{{courtier.email}}" disabled>
+                <span class="focus-border"></span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nameClient">Téléphone</label>
+                <input type="text" class="form-control" id="nameClient" value="{{courtier.userPhone}}" disabled>
+                <span class="focus-border"></span>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label> Etat du projet</label>
+                <div class="colm colm-5" data-label="Etat">
+                  <span *ngIf="project.status === 'NEW'" class="statusProject new-project">Nouveau</span>
+                  <span *ngIf="project.status === 'IN_PROGRESS'"
+                        class="statusProject progress-project">En cours</span>
+                  <span *ngIf="project.status === 'WAITING'" class="statusProject waiting-project">En attente</span>
+                  <span *ngIf="project.status === 'FINISHED'" class="statusProject finish-project">Terminé</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="row mt-5">
+    <div class="col-md-12 mb-3">
+      <h3>Pièces du Projet</h3>
+    </div>
+    <div class="col-xl-4 col-lg-5 col-md-6">
+
+      <div class="card pieceProject">
+        <div class="card-header">
+          <span>Pièces communes</span>
+          <a href="javascript:void(0)" placement="bottom"  ngbPopover="en cours de développement" popoverTitle="en cours de developpement">Télécharger</a>
+        </div>
+        <div class="card-body">
+
+
+          <div class="contentPieces">
+
+            <ul class="list-table">
+              <li class="list-table-header">
+                <div class="colm colm-5"></div>
+              </li>
+              <li class="list-table-row" *ngFor="let piece of pieces">
+                <div class="colm colm-1" data-label="Libelle"
+                     *ngIf="piece.pieceName.length<10 ; else bloc2">{{piece.pieceName}}</div>
+                <ng-template #bloc2>
+                  <div class="colm colm-1" data-label="Libelle">{{piece.pieceName.substr(0, 10) + '...'}}</div>
+                </ng-template>
+
+                <div class="colm colm-2" data-label="Libelle">
+                  <span *ngIf="piece.pieceStatus === 'NEW'" class="statusPiece new-piece">Nouveau</span>
+                  <span *ngIf="piece.pieceStatus === 'VERIFIED'" class="statusPiece verified-piece">Vérifiée</span>
+                  <span *ngIf="piece.pieceStatus === 'WAITING'" class="statusPiece waiting-piece">En attente</span>
+                </div>
+
+                <div class="colm colm-5">
+                  <div class="actionPieces">
+                    <a href="javaScript:void (0)" (click)="openDialogDetailsPiece(piece)" class="duplicate-piece"
+                       value='Press me' title='show piece details'>
+                      <i class="ri-file-copy-2-line"></i>
+                    </a>
+                    <a *ngIf="piece.pieceStatus==='NEW'||piece.pieceStatus==='WAITING'" href="javaScript:void (0)"
+                       (click)="openDialogAjoutDocument(piece)" class="edit-piece" value='Press me'
+                       title='upload document'>
+                      <i class="ri-edit-box-line"></i>
+                    </a>
+                  </div>
+                </div>
+              </li>
+
+
+            </ul>
+
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <div class="card msgChat">
+        <div class="card-header">
+          <h4>Envoyez vos messages ici</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-conversation [id]="projectId" [type]="type"></app-conversation>
+
+  </div>
+</main>

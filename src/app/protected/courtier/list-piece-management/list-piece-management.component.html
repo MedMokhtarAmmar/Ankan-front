@@ -1,0 +1,89 @@
+<main role="main">
+
+  <div class="container-fluid mainContent">
+
+    <div class="row mb-4">
+      <div class="col-md-12 d-flex justify-content-end">
+        <a href="javascript:void(0)" [routerLink]="'/courtier/createList'" class="btn btn-default">Ajouter une Nouvelle Liste</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="portlet">
+          <div class="headerPortlet">
+            <h3>Pièces</h3>
+          </div>
+          <div class="bodyPortlet">
+
+
+
+            <div  class="row">
+              <div class="col-md-12">
+                <form class="form-recherche mt-2 mb-2">
+                  <label>Recherche: </label>
+                  <input type="text" class="form-control ml-2" id="inlineFormInputName2" placeholder="">
+                </form>
+              </div>
+              <div class="col-md-12">
+
+                <div class="contentPieces">
+
+                  <ul class="list-table">
+                    <li class="list-table-header">
+                      <div class="colm colm-1">Nom du Liste</div>
+                      <div class="colm colm-2">Descriptif</div>
+
+                      <div class="colm colm-6"></div>
+                    </li>
+                    <li class="list-table-row" *ngFor="let piece of listes;let i=index" [routerLink]="['/courtier/list-piece-info/', piece.id ]">
+                      <div class="colm colm-1" data-label="Libelle">{{piece.listName}}</div>
+                      <div class="colm colm-2" data-label="Descriptif">
+                        <p *ngIf="piece.description.length<150 ;else bloc2">{{piece.description}}</p>
+                        <ng-template #bloc2>
+                          <p>{{piece.description.substr(0, 150) + '...'}}</p>
+                        </ng-template>
+                      </div>
+
+
+
+                      <div class="colm colm-6" >
+
+
+                        <div class="actionPieces">
+                          <!--                          <a href="javascript:main(0)" class="duplicate-piece">-->
+                          <!--                            <i class="ri-file-copy-2-line"></i>-->
+                          <!--                          </a>-->
+                          <a href="javascript:void (0)"  class="duplicate-piece" [routerLink]="['/courtier/list-piece-info/', piece.id ]" value='Press me' title='show piece details'>
+                            <i class="ri-file-copy-2-line"></i>
+                          </a>
+                          <a href="javascript:void(0)" (click)="editPiece(piece)" class="edit-piece" value='Press me' title='edit piece '>
+                            <i class="ri-edit-box-line"></i>
+                          </a>
+                          <a href="javascript:void(0)"  (click)="deletePiece(piece)" class="delete-piece" value='Press me' title='delete piece '>
+                            <i class="ri-delete-bin-6-line"></i>
+                          </a>
+
+                        </div>
+
+                      </div>
+                    </li>
+
+
+                  </ul>
+
+                </div>
+
+              </div>
+              <div class="col-md-12 mt-3">
+                <!--                <div class="nbrResultatRecherche">Résultats 1 à 3 sur 3</div>-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
